@@ -1,0 +1,83 @@
+.component-header {
+	height: 106px;
+	background-color: #aaa;
+	color: #666;
+	.header{
+		height: 106px;
+		display: flex;
+	  flex-wrap: wrap; 
+	  flex-direction:row-reverse;
+		justify-content:space-between;
+		.links {
+			line-height: 106px;
+			font-size: 30px;
+			color: #fff;
+			padding-left: 20px;
+		}	
+		.sign {
+			display: flex;
+			height: 106px;
+			line-height: 106px;
+			text-align: center;
+			.sign-link {
+				flex:auto;
+				width: 140px;
+				letter-spacing: 2px;
+			}
+			.sign-up {
+				color: #fff;
+				background-color: #1589fc;				
+			}
+		};
+		.user {
+			width: 100px;
+			margin: 0 30px;
+			position: relative;
+			.avatar {
+				width: 60px;
+				height: 60px;
+				margin: 23px 0 0 20px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			&:hover .links{ 
+				display: block;
+			}
+			.links {
+				position: absolute;
+				left: 0;
+				top: 106px;
+				width: 100%;
+				display: none;
+				cursor: pointer;
+				border-radius: 4px;
+				li:first-child { 
+				}
+				li {
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					background-color: #fff;
+					color: #000;
+					transition: all .5s ease;
+					&:hover {
+						background-color: #1589fc;
+						color: #fff;
+					}
+				}
+			} 
+		}
+		.marker {
+			position: absolute;
+			left: 0;
+			bottom:0;
+			display: block;
+			width:40px;
+			height: 3px;
+			background: #1589fc;
+			transition: left .25s  ease;
+			-webkit-transition: left .25s ease;
+		}
+	}
+}
