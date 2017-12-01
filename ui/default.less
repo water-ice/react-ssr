@@ -1,0 +1,33 @@
+@import './base/base.less';
+@import './base/normalize.less';
+
+@import './module/button.less';
+@import './module/slider.less';
+/*
+	Level Grade
+	base < farely < special
+*/
+@baseColor:#f8f8f8;
+@farelyColor:#f4f3f3;
+@MainColor:#fff217;
+@ButtonDefaultColor:#ddd;
+@ButtonActiveColor:@MainColor;
+
+
+@FontLevelColor1:#333;
+@FontLevelColor2:#666;
+@FontLevelColor3:#999;
+
+body {
+	min-width: 1160px;
+}
+
+.fc3 {
+	color: @FontLevelColor1
+};
+.fc6 {
+	color: @FontLevelColor2
+}
+.fc9 {
+	color: @FontLevelColor3;
+}
