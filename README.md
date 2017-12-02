@@ -8,3 +8,8 @@
 getaddrinfo ENOTFOUND undefined undefined:80
 是因为dns找不到域名导致的
 ```
+
+### eslint
+
+### editorconfig
+
