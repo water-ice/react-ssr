@@ -3,5 +3,9 @@
     ["es2015", { "loose": true }],
     "stage-1",
     "react"
+  ],
+  "plugins": [
+    // react-hot-loader:提供react的hot-module-replatement功能的工具
+    "react-hot-loader/babel"
   ]
 }
