@@ -1,20 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
 import { connect } from 'react-redux';
 
-const HeaderStyle = {
-  "textAlign":"right",
-  "background":"#CD3333",
-  "color":"white",
-  "fontSize":"20px",
-  "padding":"20px 0",
-  "display":"flex"
-};
-const LinkStyle = {
-  "marginRight":"15px",
-  "color":"#fff"
-}
+import LogoSrc from '@image/logo.png'
+import '@style/component-header.less';
+
 class GlobalHeader extends React.Component {
   constructor(props) {
     super(props)
@@ -27,13 +17,14 @@ class GlobalHeader extends React.Component {
   render(){
     const IsLogin = this.props.user.name;
     return (
-      <header style={HeaderStyle}>
-        <Link to="/"><span style={LinkStyle}>home</span></Link>
-        <Link to="/contest"><span style={LinkStyle} >Contest</span></Link>
+      <header className="component-header">
+        <Link to='/'><img src={LogoSrc} /></Link>
+        <Link to="/"><span  className="icon iconfont">&#xe600;home</span></Link>
+        <Link to="/contest"><span>Contest</span></Link>
         
         <div style={{"display":IsLogin?"none":"block"}}>
-          <Link to="/account/login"><span style={LinkStyle}>Login</span></Link>
-          <Link to="/account/register"><span style={LinkStyle}>Register</span></Link>
+          <Link to="/account/login"><span >Login</span></Link>
+          <Link to="/account/register"><span >Register</span></Link>
         </div>
         
         <div style={{"display":IsLogin?"block":"none"}} >
