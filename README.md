@@ -10,6 +10,20 @@ getaddrinfo ENOTFOUND undefined undefined:80
 ```
 
 ### eslint
+"lint": "eslint --ext .js --ext .jsx src/",
+"precommit": "npm run lint"
+      {
+        // 在代码编译之前先进行eslint
+        enforce:"pre",
+        test:/.(js|jsx)/,
+        loader:"eslint-loader",
+        exclude:[
+          path.resolve(__dirname,'../node_modules')
+        ]
+      },
 
 ### editorconfig
 
+
+### nodemon
+修改服务器端文件，不需要重新服务
