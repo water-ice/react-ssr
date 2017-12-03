@@ -9,15 +9,6 @@ module.exports = {
   module:{
     rules: [
       {
-        // 在代码编译之前先进行eslint
-        enforce:"pre",
-        test:/.(js|jsx)/,
-        loader:"eslint-loader",
-        exclude:[
-          path.resolve(__dirname,'../node_modules')
-        ]
-      },
-      {
         test: /\.jsx$/,
         loader: "babel-loader"
       },
@@ -27,7 +18,7 @@ module.exports = {
         exclude:[
           path.join(__dirname,'../node_modules')
         ]
-      }
+      }      
     ]
   },
   resolve: {
