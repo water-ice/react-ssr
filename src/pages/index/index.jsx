@@ -1,5 +1,6 @@
 import React from 'react';
 
+import "@style/page-index.less"
 
 export default class PageIndex extends React.Component {
   constructor(){
@@ -7,7 +8,7 @@ export default class PageIndex extends React.Component {
   }
   render(){
     return (
-      <main style={{"minHeight":"500px","textAlign":"center","background":"#C6E2FF"}}>
+      <main className="page-index" >
         <h1>首页</h1> 
       </main>
     )
