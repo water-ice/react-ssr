@@ -1,21 +1,21 @@
 
 {
-  "parser": "babel-eslint",
-  "env":{
-    "browser":true,
-    "es6":true,
-    "node":true
-  },
-  "parserOptions": {
-    "ecmaVersion":6,
-    "sourceType": "module"
-  },
-  // 使用airbnb的react开发规范
-  "extends": "airbnb",
-  // 自定义规则
-  "rules": {
-	"semi": [0],
-	"react/prefer-stateless-function": "off",
-	"linebreak-style": "off"
-  }
+//   "parser": "babel-eslint",
+//   "env":{
+//     "browser":true,
+//     "es6":true,
+//     "node":true
+//   },
+//   "parserOptions": {
+//     "ecmaVersion":6,
+//     "sourceType": "module"
+//   },
+//   // 使用airbnb的react开发规范
+//   "extends": "airbnb",
+//   // 自定义规则
+//   "rules": {
+// 	"semi": [0],
+// 	"react/prefer-stateless-function": "off",
+// 	"linebreak-style": "off"
+//   }
 }
