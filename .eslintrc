@@ -1,8 +1,8 @@
 {
   // extends: 标准JS规则
-  "extends": "standard",
-  "rules":{
-	// 关闭换行验证
-	"linebreak-style": "off"
-  }
+//   "extends": "standard",
+//   "rules":{
+// 	// 关闭换行验证
+// 	"linebreak-style": "off"
+//   }
 }
