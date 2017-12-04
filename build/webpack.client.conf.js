@@ -27,17 +27,17 @@ if (IsDev) {
       'react-hot-loader/patch',
       path.resolve(__dirname, '../src/entry_client.js')
     ]
-  }
+  } 
   Config.devServer = {
     host: "0.0.0.0",
     port: GlobalConfig.port,
+    publicPath:"/", 
     contentBase: path.join(__dirname, '../dist'),
     hot:true,
     // 以黑色弹窗形式显示报错
     overlay: {
       errors: true,
     },
-    publicPath: "/public",
     historyApiFallback: {
       index: "/public/index.html"
     }
