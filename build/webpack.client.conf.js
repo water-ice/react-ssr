@@ -9,11 +9,7 @@ module.exports = WebpackMerge(baseConf,{
     },
     output: {
         // name = entry.app 
-        filename: '[name].[hash:8].js',
-        // 生成文件
-        path: path.resolve(__dirname,'../dist'),
-        // 静态资源的引用路径,区分静态资源
-        publicPath: ''
+        filename: '[name].[hash:8].js', 
     },
     module: {
         rules:[
