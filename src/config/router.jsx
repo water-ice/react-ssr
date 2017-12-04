@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom'
 
 import PageIndex from '../pages/index/index'
-import PageContest from '../pages/contest/index'
-import PageContestDetail from '../pages/contest_detail/index'
+import PageContest from '../pages/battle/index'
+import PageContestDetail from '../pages/battle-detail/index'
 
 import PageLogin from '../pages/account/login';
 import PageRegister from '../pages/account/register';

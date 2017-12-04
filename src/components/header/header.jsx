@@ -19,7 +19,7 @@ class GlobalHeader extends React.Component {
     return (
       <header className="component-header">
         <Link to='/'><img src={LogoSrc} /></Link>
-        <Link to="/"><span  className="icon iconfont">&#xe600;home</span></Link>
+        <Link to="/"><span  className="icon iconfont">&#xe600;home1</span></Link>
         <Link to="/contest"><span>Contest</span></Link>
         
         <div style={{"display":IsLogin?"none":"block"}}>
