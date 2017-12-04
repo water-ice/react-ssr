@@ -1,5 +1,7 @@
 {
+  // babel支持的语法配置
   "presets": [
+    // 使用es2015的松散模式
     ["es2015", { "loose": true }],
     "stage-1",
     "react"

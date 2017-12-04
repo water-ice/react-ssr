@@ -5,15 +5,15 @@ import RouterMap from './config/router';
 
 
 // import './static/fonts/iconfont.css'
-
+      // <ComponentHeader key="header" />,
+      // <RouterMap key="2"  key='router' />,
+      // <ComponentFooter key='footer'/>
 import './ui/theme.less';
 
 export default class App extends React.Component {
   render() {
-    return [
-      <ComponentHeader key="header" />,
-      <RouterMap key="2"  key='router' />,
-      <ComponentFooter key='footer'/>
-    ]
+    return (
+      <h1>aaa</h1>
+    )
   }
 }
