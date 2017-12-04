@@ -4,13 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:client": "webpack --config ./build/webpack.client.conf.js",
-    "build:server": "webpack --config ./build/webpack.server.conf.js",
-    "dev:client": "cross-env NODE_ENV=develop webpack-dev-server --config ./build/webpack.client.conf.js",
-    "dev:server": "cross-env NODE_ENV=develop node  ./server/start.js",
-    "clean": "rimraf dist",
-    "deploy": "npm run clean && npm run build:client && npm run build:server"
-  },
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wangerniu/react-ssr2.git"
