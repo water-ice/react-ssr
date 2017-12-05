@@ -8,12 +8,12 @@ import React from 'react';
       // <ComponentHeader key="header" />,
       // <RouterMap key="2"  key='router' />,
       // <ComponentFooter key='footer'/>
-import './ui/theme.less';
+// import './ui/theme.less';
 
 export default class App extends React.Component {
   render() {
     return (
-      <h1>aaa</h1>
+      <div style={{"color":"blue",'fontSize':"40px"}}>111</div>
     )
   }
 }
