@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   output:{
     path:path.resolve(__dirname,'../dist'),
+    // 引用静态资源文件路径
     publicPath: '/public/'
   },
     module:{
