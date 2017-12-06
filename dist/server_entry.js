@@ -58,7 +58,7 @@ module.exports =
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/public/";
+/******/ 	__webpack_require__.p = "/static/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 5);
@@ -116,7 +116,7 @@ var _reactRouterDom = __webpack_require__(1);
 
 var _mobxReact = __webpack_require__(3);
 
-var _store = __webpack_require__(18);
+var _store = __webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -171,13 +171,15 @@ var _header = __webpack_require__(7);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _router = __webpack_require__(8);
+var _router = __webpack_require__(9);
 
 var _router2 = _interopRequireDefault(_router);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(20);
+
+__webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -195,7 +197,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // ,
 // <RouterMap key="2"  key='router' />,
 // <ComponentFooter key='footer'/>
-// import './ui/theme.less';
 
 
 var App = function (_React$Component) {
@@ -252,6 +253,8 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
+
+__webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -329,6 +332,12 @@ var _temp = function () {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -342,31 +351,31 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _index = __webpack_require__(9);
+var _index = __webpack_require__(10);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(10);
+var _index3 = __webpack_require__(12);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _picture = __webpack_require__(11);
+var _picture = __webpack_require__(14);
 
 var _picture2 = _interopRequireDefault(_picture);
 
-var _name = __webpack_require__(12);
+var _name = __webpack_require__(15);
 
 var _name2 = _interopRequireDefault(_name);
 
-var _login = __webpack_require__(13);
+var _login = __webpack_require__(16);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _register = __webpack_require__(14);
+var _register = __webpack_require__(17);
 
 var _register2 = _interopRequireDefault(_register);
 
-var _index5 = __webpack_require__(16);
+var _index5 = __webpack_require__(19);
 
 var _index6 = _interopRequireDefault(_index5);
 
@@ -392,7 +401,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -417,6 +426,8 @@ var _reactHelmet = __webpack_require__(4);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
+__webpack_require__(11);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -425,9 +436,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import {DemoState} from './store/demo_state'
-// 在provider上定义的叫啥名字，在这里inject就用啥名字
-// 使用demoState中的所有的数据和方法
 var PageIndex = (_dec = (0, _mobxReact.inject)('demoState'), _dec(_class = (0, _mobxReact.observer)(_class = function (_React$Component) {
   _inherits(PageIndex, _React$Component);
 
@@ -503,7 +511,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 10 */
+/* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -519,6 +533,8 @@ var _react2 = _interopRequireDefault(_react);
 var _reactHelmet = __webpack_require__(4);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
+
+__webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -540,7 +556,7 @@ var PageContest = function (_React$Component) {
   PageContest.prototype.render = function render() {
     return _react2.default.createElement(
       'main',
-      { style: { "minHeight": "500px", "textAlign": "center", "background": "#D1EEEE" } },
+      { className: 'page-battle' },
       _react2.default.createElement(
         _reactHelmet2.default,
         null,
@@ -553,7 +569,7 @@ var PageContest = function (_React$Component) {
       _react2.default.createElement(
         'h1',
         null,
-        '\u8FD9\u91CC\u662F\u8D5B\u4E8B\u9875\u9762'
+        '\u8FD9\u91CC\u662F\u8D5B\u4E8B\u9875\u976223321'
       )
     );
   };
@@ -575,7 +591,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 11 */
+/* 13 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -630,7 +652,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -685,7 +707,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -744,7 +766,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -756,7 +778,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(15);
+var _reactRedux = __webpack_require__(18);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -857,13 +879,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -962,13 +984,19 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router");
 
 /***/ }),
-/* 18 */
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -977,7 +1005,7 @@ module.exports = require("react-router");
 exports.__esModule = true;
 exports.CreateStoreMap = exports.demoState = undefined;
 
-var _demo_state = __webpack_require__(19);
+var _demo_state = __webpack_require__(23);
 
 var _demo_state2 = _interopRequireDefault(_demo_state);
 
@@ -1011,7 +1039,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1024,7 +1052,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _desc, _value, _class, _descriptor, _descriptor2;
 
-var _mobx = __webpack_require__(20);
+var _mobx = __webpack_require__(24);
 
 function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -1153,7 +1181,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("mobx");
