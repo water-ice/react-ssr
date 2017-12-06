@@ -3,8 +3,7 @@ const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin')
 const WebpackMerge = require('webpack-merge')
 const baseConf = require('./webpack.base.conf')
-
-const isDev = process.env.NODE_ENV === 'develop';
+const Config = require('../config/index') 
 
 const clientConf =  WebpackMerge(baseConf,{
     entry: {
@@ -15,9 +14,11 @@ const clientConf =  WebpackMerge(baseConf,{
         filename: '[name].[hash:8].js', 
     },
     plugins:[
+        // 生成客户端页面
         new HtmlPlugin({
             template:path.resolve(__dirname,'../client/client.template.html')
         }),
+        // 生成服务器端模板
         new HtmlPlugin({
             template:'!!ejs-compiled-loader!'+path.resolve(__dirname,'../client/server.template.ejs'),
             filename:'server.ejs'
@@ -25,7 +26,7 @@ const clientConf =  WebpackMerge(baseConf,{
     ]
 })
 
-if(isDev) {
+if(Config.isDev) {
     // 热更新entry配置
     clientConf.entry = {
         app:[
@@ -40,7 +41,7 @@ if(isDev) {
         // 指向本机IP 也可以是localhost(无法联机访问)
         host:"0.0.0.0",
         // 端口号
-        port:"8088",
+        port:Config.port.client,
         // 服务器根目录为打包出来的dist文件夹
         contentBase:path.resolve(__dirname,'../dist'),
         // 热刷新配置：需要配合app.jsx中的module.hot
@@ -56,7 +57,7 @@ if(isDev) {
             index: '/public/index.html'
         },
         proxy:{
-            '/api':'http://localhost:3333'
+            '/api':'http://localhost:'+Config.port.develop
         }
     }
     // 热更新
