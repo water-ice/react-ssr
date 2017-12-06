@@ -105,21 +105,22 @@ module.exports = function(app) {
                 }            
                 // 服务器端渲染后的数据
                 const state = getStoreState(stores)
-                console.log(stores.demoState)
-                console.log(state)
+                // console.log(stores.demoState)
+                // console.log(state)
                 const html = ejs.render(template, {
                     appString:content,
                     initialState:serialize(state)
                 })
+                // console.log(html)
                 res.send(html)
             })
         }).then(err => {
-            // 监听获取模板的错误
+            // 监听获取模板的错误    
             // console.log(err)
         })
     })
-    app.listen(3333,(err)=>{
+    app.listen(3334,(err)=>{
         if(err) throw err;
-        console.log('server has running at localhost:3333')
+        console.log('server has running at localhost:3334')
     })
 }
