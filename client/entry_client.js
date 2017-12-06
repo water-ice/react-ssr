@@ -10,15 +10,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'mobx-react'
 // 挂载DOM节点
 const DOM = document.getElementById('app')
+ 
+import DemoState from './store/demo_state'
 
-import demoState from './store/demo_state'
-
-const inititalState = window.__INITIAL__STATE__ || new demoState();
+const inititalState = window.__INITIAL__STATE__ || {};
 // render方法
 const render = Component => {
     ReactDOM.hydrate(
         <AppContainer >
-            <Provider demoState={window.__INITIAL__STATE__.demoState}>
+            <Provider demoState={new DemoState(inititalState.demoState)}>
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>
