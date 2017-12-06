@@ -1,6 +1,13 @@
+import DemoStateClass from './demo_state';
+
+export const demoState = DemoStateClass;
+
 export default {
-  user:{
-    name:"",
-    mobile:"",
+  demoState,
+}
+
+export const createStoreMap = () => {
+  return {
+    demoState: new demoState()
   }
 }
