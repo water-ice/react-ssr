@@ -3,10 +3,12 @@
   "presets": [
     // 使用es2015的松散模式
     ["es2015", { "loose": true }],
+    // 用stage-1的语法
     "stage-1",
     "react"
   ],
   "plugins": [
+    // 支持mobx，必须再第一项
     "transform-decorators-legacy",
 
     // 提供react的hot-module-replatement功能
