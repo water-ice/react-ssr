@@ -6,7 +6,7 @@ export default {
   demoState,
 }
 
-export const createStoreMap = () => {
+export const CreateStoreMap = () => {
   return {
     demoState: new demoState()
   }
