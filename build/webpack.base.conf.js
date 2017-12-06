@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-module.exports = {
+const isDev = require('../config/index');
+let baseConf = {
   output:{
     path:path.resolve(__dirname,'../dist'),
     // 引用静态资源文件路径
@@ -18,21 +19,7 @@ module.exports = {
             exclude:[
               path.join(__dirname,'../node_modules')
             ]
-          },
-          {
-            test:/\.less/,
-            use:ExtractTextPlugin.extract({
-              fallback:'style-loader',
-              use:'css-loader!less-loader'
-            })
-          },  
-          {
-            test:/\.css/,
-            use:ExtractTextPlugin.extract({
-              fallback:'style-loader',
-              use:'css-loader'
-            })
-          },      
+          },     
           {
             test: /\.(png|jpe?g|gif)(\?.*)?$/,
             loader: 'url-loader',
@@ -40,7 +27,7 @@ module.exports = {
               limit: 10000,
               name:"[hash:8].[ext]",
               outputPath:"images/",
-              publicPath:"/public/"
+              publicPath:"/static/"
             }
           },
           {
@@ -50,7 +37,7 @@ module.exports = {
               limit: 10000,
               name:"[hash:8].[ext]",
               outputPath:"videos/",
-              publicPath:"/public/"
+              publicPath:"/static/"
             }        
           },
           {
@@ -60,7 +47,7 @@ module.exports = {
               limit:10000,
               name:"icon.[hash:8].[ext]",
               outputPath:'fonts/',
-              publicPath:'/public/'
+              publicPath:'/static/'
             }
           }
         ]
@@ -76,7 +63,40 @@ module.exports = {
       },
       extensions: ['.js','.jsx','.less','.css']
   },
-  plugins:[
-    new ExtractTextPlugin('css/main.[hash:8].css'),
-  ]
+  plugins:[]
 }
+console.log(isDev)
+if(!isDev) {
+  baseConf.module.rules.push(
+    {
+      test:/\.less/,
+      loaders:"style-loader!css-loader!less-loader"
+    },  
+    {
+      test:/\.css/,
+      loaders:"style-loader!css-loader"
+    },     
+  )
+}
+else {
+  baseConf.module.rules.push(
+    {
+      test:/\.less/,
+      use:ExtractTextPlugin.extract({
+        fallback:'style-loader',
+        use:'css-loader!less-loader'
+      })
+    },  
+    {
+      test:/\.css/,
+      use:ExtractTextPlugin.extract({
+        fallback:'style-loader',
+        use:'css-loader'
+      })
+    },     
+  )
+  baseConf.plugins.push(
+    new ExtractTextPlugin('css/main.[hash:8].css')
+  )
+}
+module.exports = baseConf

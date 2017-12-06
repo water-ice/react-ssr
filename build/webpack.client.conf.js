@@ -65,5 +65,9 @@ if(Config.isDev) {
         new webpack.HotModuleReplacementPlugin()
     )
 }
-
+// if(!Config.isDev) {
+//     clientConf.plugins.push(
+//         new ExtractTextPlugin('css/main.[hash:8].css')
+//     )
+// }
 module.exports = clientConf;
