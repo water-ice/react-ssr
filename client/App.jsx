@@ -10,7 +10,7 @@ import { withRouter } from 'react-router'
       // ,
       // <RouterMap key="2"  key='router' />,
       // <ComponentFooter key='footer'/>
-// import './ui/theme.less';
+import './ui/theme.less';
 
 
 
