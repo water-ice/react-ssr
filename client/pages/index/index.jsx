@@ -1,11 +1,14 @@
 import React from 'react';
-
-import "@style/page-index.less"
+import axios from 'axios';
 
 export default class PageIndex extends React.Component {
   constructor(){
     super()
   }
+  componentWillMount(){
+
+  }
+
   render(){
     return (
       <main className="page-index" >
