@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'; 
-
+import '@style/component-header.less';
 export default class ComponentHeader extends React.Component {
   constructor(props) {
     super(props)
