@@ -14,6 +14,5 @@ module.exports = WebpackMerge(baseConf,{
         libraryTarget:"commonjs2"
     },
     plugins:[
-        new ExtractTextPlugin('main.[hash:8].css'),
     ]
 })
