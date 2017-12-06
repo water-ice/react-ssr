@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react'
 import Helmet from 'react-helmet'
-// import {DemoState} from './store/demo_state'
-// 在provider上定义的叫啥名字，在这里inject就用啥名字
-// 使用demoState中的所有的数据和方法
+import '@style/page-index.less'
 @inject('demoState') @observer
 export default class PageIndex extends React.Component {
   constructor(){
