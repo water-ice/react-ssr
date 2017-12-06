@@ -17,7 +17,7 @@ import DemoState from './store/demo_state'
 const inititalState = window.__INITIAL__STATE__ || {};
 // render方法
 const render = Component => {
-    ReactDOM.hydrate(
+    ReactDOM.render(
         <AppContainer >
             <Provider demoState={new DemoState(inititalState.demoState)}>
                 <BrowserRouter>   

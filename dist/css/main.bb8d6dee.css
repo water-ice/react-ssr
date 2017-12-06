@@ -1,14 +1,14 @@
 .component-header {
-  display: flex;
-  justify-content: space-between;
-  line-height: 52px;
-  padding: 9px 20px;
+  width: 100%;
+  height: 66px;
+  background: rgba(255, 255, 255, 0.6);
+  line-height: 66px;
 }
-.component-header > div {
-  display: flex;
+.component-header div {
+  display: inline-block;
 }
-.component-header span {
-  margin: 0 10px;
+.component-header a {
+  margin-right: 20px;
 }
 .page-index {
   min-height: 500px;
@@ -617,3 +617,7 @@ button:focus {
 /*
 	@function UI风格变量
 */
+.main-container {
+  width: 1080px;
+  margin: 0 auto;
+}
