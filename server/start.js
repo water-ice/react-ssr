@@ -49,7 +49,7 @@ else {
     // client/index.html打包出来的页面
     const serverTemplate = fs.readFileSync(path.join(__dirname,'../dist/server.ejs'),'utf-8')
     // 所有以public开头的请求，都以静态资源的形式返回
-    app.use('/public',express.static(path.join(__dirname,'../dist')))
+    app.use('/static',express.static(path.join(__dirname,'../dist')))
 
     // 所有请求都进入这里
     app.get("*",(req,res,next)=>{
