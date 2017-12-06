@@ -7,6 +7,7 @@ module.exports = WebpackMerge(baseConf,{
     entry: {
         "app":path.resolve(__dirname,'../client/entry_server.js')
     },
+    externals:Object.keys(require('../package.json').dependencies),
     output: {
         filename: 'server_entry.js',
         // 打包模块方案：amd,umd,cmd,commonjs
