@@ -14,24 +14,13 @@ const clientConf =  WebpackMerge(baseConf,{
         // name = entry.app 
         filename: '[name].[hash:8].js', 
     },
-    module: {
-        rules:[
-            {
-                test:/\.jsx/,
-                loader:"babel-loader"
-            },
-            {
-                test:/\.js/,
-                loader:"babel-loader",
-                exclude:[
-                    path.resolve(__dirname,'../node_modules')
-                ]
-            }
-        ]
-    },
     plugins:[
         new HtmlPlugin({
-            template:path.resolve(__dirname,'../client/index.html')
+            template:path.resolve(__dirname,'../client/client.template.html')
+        }),
+        new HtmlPlugin({
+            template:'!!ejs-compiled-loader!'+path.resolve(__dirname,'../client/server.template.ejs'),
+            filename:'server.ejs'
         })
     ]
 })
@@ -65,6 +54,9 @@ if(isDev) {
         // 指定index.html是public下面的，所有404都返回这个页面，加这个的原因就是要区分路由与静态资源
         historyApiFallback: {
             index: '/public/index.html'
+        },
+        proxy:{
+            '/api':'http://localhost:3333'
         }
     }
     // 热更新
