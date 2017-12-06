@@ -11,7 +11,7 @@ const clientConf =  WebpackMerge(baseConf,{
     },
     output: {
         // name = entry.app 
-        filename: '[name].[hash:8].js', 
+        filename: 'js/[name].[hash:8].js', 
     },
     plugins:[
         // 生成客户端页面
@@ -51,10 +51,10 @@ if(Config.isDev) {
             errors: true,
         },
         // 所有的静态路径都在public下面，这块儿还有一些地方想不通=>是publicPath而不是output.PublicPath！
-        publicPath:'/public',
+        publicPath:'/static',
         // 指定index.html是public下面的，所有404都返回这个页面，加这个的原因就是要区分路由与静态资源
         historyApiFallback: {
-            index: '/public/index.html'
+            index: '/static/index.html'
         },
         proxy:{
             '/api':'http://localhost:'+Config.port.develop
