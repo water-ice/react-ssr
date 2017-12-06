@@ -1,10 +1,10 @@
 const path = require('path');
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   output:{
     path:path.resolve(__dirname,'../dist'),
     // 引用静态资源文件路径
-    publicPath: '/public/'
+    publicPath: '/static/'
   },
   module:{
       rules: [
@@ -21,18 +21,17 @@ module.exports = {
           },
           {
             test:/\.less/,
-            loaders:[
-              "style-loader",
-              "css-loader",
-              "less-loader"
-            ]
+            use:ExtractTextPlugin.extract({
+              fallback:'style-loader',
+              use:'css-loader!less-loader'
+            })
           },  
           {
             test:/\.css/,
-            loaders:[
-              "style-loader",
-              "css-loader"
-            ]
+            use:ExtractTextPlugin.extract({
+              fallback:'style-loader',
+              use:'css-loader'
+            })
           },      
           {
             test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -76,5 +75,8 @@ module.exports = {
           "@image":path.resolve(__dirname,'../client/static/images')
       },
       extensions: ['.js','.jsx','.less','.css']
-  }
+  },
+  plugins:[
+    new ExtractTextPlugin('css/main.[hash:8].css'),
+  ]
 }
