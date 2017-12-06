@@ -1,5 +1,9 @@
-const IsDev = process.env.NODE_ENV === 'develop';
 
 module.exports = {
-  port:IsDev?3000:3306
+  port:{
+    client:8088,
+    develop:3000,
+    product:3306
+  },
+  isDev:process.env.NODE_ENV === 'develop'
 }
