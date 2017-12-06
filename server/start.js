@@ -1,15 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-
+const favicon = require('serve-favicon');
 const ReactSSR = require('react-dom/server');
 
+// 接口代理
+const bodyParse = require('body-parser')
+const session = require('express-session');
 // 环境变量
 const isDev = process.env.NODE_ENV === 'develop';
 
 
 const app = express();
 
+// application/json -> req.body
+app.use(bodyParse.json())
+
+// post请求也转化为req.body
+app.use(bodyParse.urlencoded({ extended:false}))
+
+// resave：每次请求是否重新生成session
+app.use(session({
+    maxAge: 10 * 60 * 1000,
+    name: 'testid',
+    resave: false,
+    saveUninitialized:false,
+    secret:"test secret"
+}))
+
+// 浏览器上面的icon
+app.use(favicon(path.join(__dirname,'../favicon.ico')))
+
+// api拦截
+app.use('/api/user',require('./login-proxy'))
+app.use('/api',require('./proxy'))
 
 if(isDev) {
     // 开发环境
