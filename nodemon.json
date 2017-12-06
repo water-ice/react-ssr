@@ -1,0 +1,15 @@
+{
+    "restartable":"rs",
+    "ignore":[
+        ".git",
+        "node_modules/**/node_modules",
+        ".eslintrc",
+        "client",
+        "build"
+    ],
+    "env": {
+        "NODE_ENV":"develop"
+    },
+    "verbose": true,
+    "ext":"js"
+}
