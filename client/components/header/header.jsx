@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import LogoSrc from '@image/logo.png'
-import '@style/component-header.less';
+// import '@style/component-header.less';
 
 class GlobalHeader extends React.Component {
   constructor(props) {
