@@ -4,7 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin')
 const WebpackMerge = require('webpack-merge')
 const baseConf = require('./webpack.base.conf')
 const Config = require('../config/index') 
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const clientConf =  WebpackMerge(baseConf,{
     entry: {
         "app":path.resolve(__dirname,'../client/entry_client.js')
@@ -65,9 +65,41 @@ if(Config.isDev) {
         new webpack.HotModuleReplacementPlugin()
     )
 }
-// if(!Config.isDev) {
-//     clientConf.plugins.push(
-//         new ExtractTextPlugin('css/main.[hash:8].css')
-//     )
-// }
+if(Config.isDev) {
+    console.log('environment:dev-client')
+    // 开发环境，客户端使用style-loader插入dom进行热更替
+    clientConf.module.rules.push(
+        {
+            test:/\.css/,
+            loaders:"style-loader!css-loader"
+        }, 
+        {
+            test:/\.less/,
+            loaders:"style-loader!css-loader!less-loader"
+        },               
+    )
+} 
+else {
+    clientConf.module.rules.push( 
+        {
+            test:/\.css/,
+            use:ExtractTextPlugin.extract({
+            fallback:'style-loader',
+            use:'css-loader'
+            })
+        },  
+        {
+            test:/\.less/,
+            use:ExtractTextPlugin.extract({
+            fallback:'style-loader',
+            use:'css-loader!less-loader'
+            })
+        },           
+    )
+    clientConf.plugins.push(
+        new ExtractTextPlugin('css/main.[contenthash:8].css')
+    )    
+}
+
+
 module.exports = clientConf;
