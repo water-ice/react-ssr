@@ -34,7 +34,7 @@ export default class PageIndex extends React.Component {
           <input type='text' onChange={this.changeName.bind(this)} />
           <span>{this.props.demoState.msg}</span>
         </div>      
-        <h1>首页</h1> 
+        <h1>首页1232224</h1> 
       </main>
     )
   }
