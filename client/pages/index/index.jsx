@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react'
-import Helmet from 'react-helmet'
-import '@style/page-index.less'
+import Helmet from 'react-helmet' 
 @inject('demoState') @observer
 export default class PageIndex extends React.Component {
   constructor(){
