@@ -116,7 +116,7 @@ var _reactRouterDom = __webpack_require__(1);
 
 var _mobxReact = __webpack_require__(3);
 
-var _store = __webpack_require__(25);
+var _store = __webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -163,11 +163,11 @@ var _router2 = _interopRequireDefault(_router);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _reactRouter = __webpack_require__(22);
+var _reactRouter = __webpack_require__(20);
 
-__webpack_require__(23);
+__webpack_require__(21);
 
-__webpack_require__(24);
+__webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -366,27 +366,27 @@ var _index = __webpack_require__(11);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(13);
+var _index3 = __webpack_require__(12);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _picture = __webpack_require__(15);
+var _picture = __webpack_require__(13);
 
 var _picture2 = _interopRequireDefault(_picture);
 
-var _name = __webpack_require__(16);
+var _name = __webpack_require__(14);
 
 var _name2 = _interopRequireDefault(_name);
 
-var _login = __webpack_require__(17);
+var _login = __webpack_require__(15);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _register = __webpack_require__(19);
+var _register = __webpack_require__(17);
 
 var _register2 = _interopRequireDefault(_register);
 
-var _index5 = __webpack_require__(21);
+var _index5 = __webpack_require__(19);
 
 var _index6 = _interopRequireDefault(_index5);
 
@@ -423,8 +423,6 @@ var _mobxReact = __webpack_require__(3);
 var _reactHelmet = __webpack_require__(4);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
-
-__webpack_require__(12);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -488,7 +486,7 @@ var PageIndex = (_dec = (0, _mobxReact.inject)('demoState'), _dec(_class = (0, _
       _react2.default.createElement(
         'h1',
         null,
-        '\u9996\u9875'
+        '\u9996\u98751232224'
       )
     );
   };
@@ -499,12 +497,6 @@ exports.default = PageIndex;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -520,8 +512,6 @@ var _react2 = _interopRequireDefault(_react);
 var _reactHelmet = __webpack_require__(4);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
-
-__webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -567,13 +557,7 @@ var PageContest = function (_React$Component) {
 exports.default = PageContest;
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -617,7 +601,7 @@ var PagePictureBattleDetail = function (_React$Component) {
 exports.default = PagePictureBattleDetail;
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -661,7 +645,7 @@ var PageNameBattleDetail = function (_React$Component) {
 exports.default = PageNameBattleDetail;
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -676,7 +660,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _index = __webpack_require__(18);
+var _index = __webpack_require__(16);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -711,7 +695,7 @@ var PageLogin = function (_React$Component) {
 exports.default = PageLogin;
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -775,7 +759,7 @@ var PageLogin = function (_React$Component) {
 exports.default = PageLogin;
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -788,7 +772,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _register = __webpack_require__(20);
+var _register = __webpack_require__(18);
 
 var _register2 = _interopRequireDefault(_register);
 
@@ -823,7 +807,7 @@ var PageRegister = function (_React$Component) {
 exports.default = PageRegister;
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -889,7 +873,7 @@ var PageRegister = function (_React$Component) {
 exports.default = PageRegister;
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -977,25 +961,25 @@ var TestApi = function (_React$Component) {
 exports.default = TestApi;
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router");
 
 /***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 23 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1004,7 +988,7 @@ module.exports = require("react-router");
 exports.__esModule = true;
 exports.CreateStoreMap = exports.demoState = undefined;
 
-var _demo_state = __webpack_require__(26);
+var _demo_state = __webpack_require__(24);
 
 var _demo_state2 = _interopRequireDefault(_demo_state);
 
@@ -1022,7 +1006,7 @@ var CreateStoreMap = exports.CreateStoreMap = function CreateStoreMap() {
 };
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1035,7 +1019,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _desc, _value, _class, _descriptor, _descriptor2;
 
-var _mobx = __webpack_require__(27);
+var _mobx = __webpack_require__(25);
 
 function _initDefineProp(target, property, descriptor, context) {
     if (!descriptor) return;
@@ -1153,7 +1137,7 @@ var DemoState = (_class = function () {
 exports.default = DemoState;
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("mobx");
