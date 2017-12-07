@@ -5,9 +5,11 @@ const WebpackMerge = require('webpack-merge')
 const baseConf = require('./webpack.base.conf')
 const Config = require('../config/index') 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const clientConf =  WebpackMerge(baseConf,{
     entry: {
-        "app":path.resolve(__dirname,'../client/entry_client.js')
+        "app":path.resolve(__dirname,'../client/entry_client.js'),
     },
     output: {
         // name = entry.app 
@@ -80,6 +82,7 @@ if(Config.isDev) {
     )
 } 
 else {
+    clientConf.entry.vendor = ['react','react-dom','mobx','mobx-react','react-router','react-router-dom','axios']
     clientConf.module.rules.push( 
         {
             test:/\.css/,
@@ -97,7 +100,20 @@ else {
         },           
     )
     clientConf.plugins.push(
-        new ExtractTextPlugin('css/main.[contenthash:8].css')
+        new ExtractTextPlugin('css/main.[contenthash:8].css'),
+        
+		// 压缩js
+		new UglifyJSPlugin(),
+		// 压缩css
+        new OptimizeCssAssetsPlugin(), 		
+        // 将entry中的vendor单独分离出来
+		new webpack.optimize.CommonsChunkPlugin({
+			names: ['vendor'], 
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            chunks: ['vendor']
+          })        
     )    
 }
 
