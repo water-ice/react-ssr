@@ -136,22 +136,8 @@ var render = function render(stores, routerContext, currentUrl) {
         )
     );
 };
-var _default = render;
-exports.default = _default;
+exports.default = render;
 exports.CreateStoreMap = _store.CreateStoreMap;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(render, 'render', 'D:/github/react-ssr2/client/entry_server.js');
-
-    __REACT_HOT_LOADER__.register(_default, 'default', 'D:/github/react-ssr2/client/entry_server.js');
-}();
-
-;
 
 /***/ }),
 /* 6 */
@@ -226,17 +212,6 @@ var App = function (_React$Component) {
 
 
 exports.default = App;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(App, 'App', 'D:/github/react-ssr2/client/App.jsx');
-}();
-
-;
 
 /***/ }),
 /* 7 */
@@ -359,17 +334,6 @@ var ComponentHeader = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ComponentHeader;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(ComponentHeader, 'ComponentHeader', 'D:/github/react-ssr2/client/components/header/header.jsx');
-}();
-
-;
 
 /***/ }),
 /* 8 */
@@ -381,7 +345,7 @@ var _temp = function () {
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAAAzCAMAAAAwwWM7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowODUwNWE4Ni03YzAwLTZlNGItOWM4Ny0xYjFiODExMmJmNGYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUZDNzgwNDVCNDhFMTFFNzgxMUNFRTU4RUU3NTg0MjgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUZDNzgwNDRCNDhFMTFFNzgxMUNFRTU4RUU3NTg0MjgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6YTRmNmY1NTAtYjkyNi0wZjQ5LWFiNjAtZDBiNmMwMWNhODUxIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6MjE5ODBhOGQtN2U2ZS0xMWU3LThjNTQtOTAyNmI4OTg0YmFlIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+BgRDHgAAAYBQTFRFOZj08/j+R5noKYLXy+T8nsftzuP2EYPzJ4jmirzrr9DxCnnki8P55PD8Vqj5wtz0Oo3cvtr0FoLrA23SG3rUXqLh7fX90uX3BnLbPJPnQ5314e36ZbD5qMzvbqvkhL73DHzposvyFX7kfLLmJYzyu9v7tNPy+fz+KJD4kcP0c63lqdH50Ob8YKv18Pf9TKDyDnPSNYnZ3+z5DX7r/P3/NIzghbrsfrr1VJ3jWqTrncz7RJLd2en5VJvfwN77FXrdxuD6Y6TiFXfTl8LsIH3VHYjzCHXe6/T9CXfhGn3dncr2drLruNbz1en9S5bd6PP99/r+6fL7dbb13u79frz5grfqHYz4E4b2FIj5Dn/tb67sZqvtj77q3Ov4mMbzttj6VKPxdrj5GYbx2+z9e7Tspc/5l8n7T5jecbb6L4XZBW/VlMf4X6ftaKfj2Ov8f7TnrtT5DnjeDHrnP4/b1uf4EIHx7PT7d7DmyN/2AmzQL5Hwj8DxEXbXHYDfAGrP////MqobYAAAAIB0Uk5T/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wA4BUtnAAAI8UlEQVR42uyZ+1fayhbHAwgiiIASeeMLDSoGlCBYfBPRVopQH6CN1trb2lAVC1IBlfnXz0wmICDBs9Zderzrnv2Dk4yZ8GHP3t/ZMxDgf8aIf1HfFOrgnfW3xbJi3daju+QIqcgOZGf37W8P9WTlYVujUmn2gxZDCShXVtZGSiojV8i6ZK+Jmtz1Lq96r3SM5DDm4ncPJV6r5JbIfU9SvCvxipvXQZV92fN5isgODw+LFV/oy2C7YUexhdLjFxkxPE57csK/fvzyqMnpvrNuaBuE79TnI9yQNhAI2H7pWkdRH7blv1cWjE9eVwr718l91Uuj7uwdpNPdxND4Zn2ar66HbIh2YfXpSCp+EQs2w+rCA6SeefG0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"
+module.exports = "/static/images/ca7f9e50.png";
 
 /***/ }),
 /* 10 */
@@ -428,24 +392,11 @@ var _index6 = _interopRequireDefault(_index5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = function _default() {
+exports.default = function () {
   return [_react2.default.createElement(_reactRouterDom.Route, { key: '1', path: '/', component: _index2.default, exact: true }), _react2.default.createElement(_reactRouterDom.Route, { key: '2', path: '/battle', component: _index4.default }), _react2.default.createElement(_reactRouterDom.Route, { key: '3', path: '/battle_name', component: _name2.default }), _react2.default.createElement(_reactRouterDom.Route, { key: '4', path: '/battle_picture', component: _picture2.default }), _react2.default.createElement(_reactRouterDom.Route, { key: '5', path: '/account/', render: function render() {
       return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/account/login' });
     }, exact: true }), _react2.default.createElement(_reactRouterDom.Route, { key: '6', path: '/account/login', component: _login2.default }), _react2.default.createElement(_reactRouterDom.Route, { key: '7', path: '/account/register', component: _register2.default }), _react2.default.createElement(_reactRouterDom.Route, { key: '8', path: '/test_api', component: _index6.default })];
 };
-
-exports.default = _default;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(_default, 'default', 'D:/github/react-ssr2/client/config/router.jsx');
-}();
-
-;
 
 /***/ }),
 /* 11 */
@@ -545,17 +496,6 @@ var PageIndex = (_dec = (0, _mobxReact.inject)('demoState'), _dec(_class = (0, _
   return PageIndex;
 }(_react2.default.Component)) || _class) || _class);
 exports.default = PageIndex;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageIndex, 'PageIndex', 'D:/github/react-ssr2/client/pages/index/index.jsx');
-}();
-
-;
 
 /***/ }),
 /* 12 */
@@ -625,17 +565,6 @@ var PageContest = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageContest;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageContest, 'PageContest', 'D:/github/react-ssr2/client/pages/battle/index.jsx');
-}();
-
-;
 
 /***/ }),
 /* 14 */
@@ -686,17 +615,6 @@ var PagePictureBattleDetail = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PagePictureBattleDetail;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(PagePictureBattleDetail, 'PagePictureBattleDetail', 'D:/github/react-ssr2/client/pages/battle_detail/picture.jsx');
-}();
-
-;
 
 /***/ }),
 /* 16 */
@@ -741,17 +659,6 @@ var PageNameBattleDetail = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageNameBattleDetail;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(PageNameBattleDetail, 'PageNameBattleDetail', 'D:/github/react-ssr2/client/pages/battle_detail/name.jsx');
-}();
-
-;
 
 /***/ }),
 /* 17 */
@@ -802,17 +709,6 @@ var PageLogin = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageLogin;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageLogin, 'PageLogin', 'D:/github/react-ssr2/client/pages/account/login.jsx');
-}();
-
-;
 
 /***/ }),
 /* 18 */
@@ -877,17 +773,6 @@ var PageLogin = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageLogin;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageLogin, 'PageLogin', 'D:/github/react-ssr2/client/components/login/index.jsx');
-}();
-
-;
 
 /***/ }),
 /* 19 */
@@ -936,17 +821,6 @@ var PageRegister = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageRegister;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageRegister, 'PageRegister', 'D:/github/react-ssr2/client/pages/account/register.jsx');
-}();
-
-;
 
 /***/ }),
 /* 20 */
@@ -1013,17 +887,6 @@ var PageRegister = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PageRegister;
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(PageRegister, 'PageRegister', 'D:/github/react-ssr2/client/components/register/index.js');
-}();
-
-;
 
 /***/ }),
 /* 21 */
@@ -1112,17 +975,6 @@ var TestApi = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = TestApi;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(TestApi, 'TestApi', 'D:/github/react-ssr2/client/pages/test_api/index.jsx');
-}();
-
-;
 
 /***/ }),
 /* 22 */
@@ -1160,30 +1012,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var demoState = exports.demoState = _demo_state2.default;
 
-var _default = {
+exports.default = {
   demoState: demoState
 };
-exports.default = _default;
 var CreateStoreMap = exports.CreateStoreMap = function CreateStoreMap() {
   return {
     demoState: new demoState()
   };
 };
-;
-
-var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
-
-  __REACT_HOT_LOADER__.register(demoState, 'demoState', 'D:/github/react-ssr2/client/store/store.js');
-
-  __REACT_HOT_LOADER__.register(CreateStoreMap, 'CreateStoreMap', 'D:/github/react-ssr2/client/store/store.js');
-
-  __REACT_HOT_LOADER__.register(_default, 'default', 'D:/github/react-ssr2/client/store/store.js');
-}();
-
-;
 
 /***/ }),
 /* 26 */
@@ -1315,17 +1151,6 @@ var DemoState = (_class = function () {
 // export default state;
 
 exports.default = DemoState;
-;
-
-var _temp = function () {
-    if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-        return;
-    }
-
-    __REACT_HOT_LOADER__.register(DemoState, "DemoState", "D:/github/react-ssr2/client/store/demo_state.js");
-}();
-
-;
 
 /***/ }),
 /* 27 */
