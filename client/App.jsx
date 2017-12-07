@@ -6,7 +6,7 @@ import RouterMap from './config/router';
 import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router'
 
-// import './static/fonts/iconfont.css'
+import './static/fonts/iconfont.css'
       // ,
       // <RouterMap key="2"  key='router' />,
       // <ComponentFooter key='footer'/>
