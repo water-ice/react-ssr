@@ -60,8 +60,13 @@ node start.js -> dev-server.js(实际执行) -> 获取html文件(通过axios前�
                                         
 ### 目录结构
 
+```
 client
   config 第三类库的引用及配置,如router等
   pages 页面文件,如index，battle,
   store 存放项目store相关的文件
   components: 非业务组件或多个业务间都需要用到的公用组件如dropdown,header,footer
+
+```
+
+### 模块划分
