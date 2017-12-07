@@ -9,17 +9,25 @@ export default class ComponentHeader extends React.Component {
   render(){ 
     return (
       <header className="component-header">
-        <section className="main-container">
-            <Link to='/' className="logo-link">
-              <img src={LogoSrc} />
+        <section className="main-container clearfix">
+          <Link to='/' className="module-logo">
+            <img src={LogoSrc} />
+          </Link>
+          <div className="module-nav">
+            <Link className="nav-anchor" to='/'>首页</Link>
+            <Link className="nav-anchor" to='/battle'>赛事</Link>
+            <Link className="nav-anchor" to='/battle'>玩法</Link>
+            <Link className="nav-anchor" to='/battle'>观战</Link>
+            <Link className="nav-anchor" to='/battle'>活动</Link>
+            <Link className="nav-anchor" to='/battle'>排行</Link>
+            <Link className="nav-anchor" to='/battle'>了解精于</Link>
+            <Link className="nav-anchor" to='/battle'>商务合作</Link>
+            <Link className="nav-anchor" to='/battle'>我有需求</Link>
+          </div>
+          <div className="module-account">
+            <Link to="/account">
+              <i className="icon iconfont">&#xe605;</i>
             </Link>
-        <div>
-            <Link to='/'>首页</Link>
-            <Link to='/battle'>全部赛事</Link>
-            <Link to='/battle_name'>征名比赛</Link>
-            <Link to='/battle_picture'>征图比赛</Link>
-            <Link to='/account'>账号</Link>
-            <Link to='/account/login'>登陆</Link>
           </div>
         </section>
       </header>
