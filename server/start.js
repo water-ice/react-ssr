@@ -33,7 +33,6 @@ app.use(session({
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
 // api拦截
-app.use('/api/user',require('./login-proxy'))
 app.use('/api',require('./proxy'))
 
 if(Config.isDev) {
