@@ -19,16 +19,16 @@ export default class PageIndex extends React.Component {
     // console.log(this.props)
     this.props.demoState.changeName(ev.target.value);
   }
-  asyncBootstrap() {
-     
-  }    
-  componentWillMount(){
+  asyncBootstrap() {   
     http.get('/api/user/get_user_list')
     .then(response => {
       this.setState({
         designers:response.data.info
       })
-    })  
+    })        
+  }    
+  componentWillMount(){
+
   }
   render(){
     console.log(this.state)

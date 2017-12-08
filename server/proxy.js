@@ -6,7 +6,7 @@ const Config = require('../config/index')
 const apiDomain = Config.isApiDev ? Config.domain.dev:Config.domain.prod;
 
 module.exports = function(req,res,next){
-    let path = req.path.replace('/api/',''); 
+    let path = req.path.replace('/api',''); 
     // console.log("当前API_ENV为: "+process.env.API_ENV)
     // console.log('当前Ajax完整请求路径为：'+`${apiDomain}${path}`)
 

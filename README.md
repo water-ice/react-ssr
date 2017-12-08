@@ -44,7 +44,7 @@ babel-plugin-transform-decorators-legacy
 1. 路由
 2. store
 3. 避免重复渲染
-4. 
+4. 多个页面，数据初始化
 
 ### 笔记
 
