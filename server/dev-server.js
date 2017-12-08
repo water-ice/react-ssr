@@ -98,7 +98,7 @@ module.exports = function(app) {
 
     app.get("*",function(req,res,next)
     {
-    // 获取到客户端服务器的模板
+        // 获取到客户端服务器的模板
         getTemplateFromClient()
         .then(template => {
             return SSRMethod(ServerBundleModule,template,req,res)
