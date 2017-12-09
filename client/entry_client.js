@@ -11,15 +11,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'mobx-react'
 // 挂载DOM节点
 const DOM = document.getElementById('app')
- 
-import DemoState from './store/demo_state'
+
+import ContestsStoreClass from './store/contests_store';
 
 const inititalState = window.__INITIAL__STATE__ || {};
 // render方法
 const render = Component => {
     ReactDOM.render(
         <AppContainer >
-            <Provider demoState={new DemoState(inititalState.demoState)}>
+            <Provider ContestsStore={new ContestsStoreClass(inititalState.ContetsStore)}>
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>
