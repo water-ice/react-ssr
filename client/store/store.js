@@ -1,13 +1,11 @@
-import DemoStateClass from './demo_state';
-
-export const demoState = DemoStateClass;
+import ContestsStoreClass from './contests_store';
 
 export default {
-  demoState,
+  ContestsStoreClass,
 }
 
 export const CreateStoreMap = () => {
   return {
-    demoState: new demoState()
+    Contests: new ContestsStoreClass()
   }
 }
