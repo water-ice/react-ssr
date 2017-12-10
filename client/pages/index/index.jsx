@@ -3,8 +3,13 @@ import axios from 'axios';
 import { observer, inject } from 'mobx-react'
 import Helmet from 'react-helmet' 
 import http from '../../../config/http';
- 
-// @inject("ContestListStore") @observer
+
+import '@style/page-index.less'; 
+@inject(stores =>{
+  return {
+    contestListStore:stores.contestListStore
+  }
+}) @observer
 export default class PageIndex extends React.Component {
   constructor(props){
     super(props)
@@ -14,38 +19,21 @@ export default class PageIndex extends React.Component {
       enties:[]
     }
   } 
-  asyncBootstrap() {           
+  asyncBootstrap() {    
   }    
   componentDidMount(){ 
-    // this.props.ContestsStore.getContestList()
+    // this.props.contestsStore.getContestList()
   }
   componentWillMount(){
-
+    // this.props.contestListStore.getContestList();
   }
-  render(){
-    // console.log(this.props)
+  render(){ 
     return (
-      <main className="page-index main-container" >
+      <main className="page-index" >
         <Helmet>
           <title>首页</title>
         </Helmet> 
-        <h1 className="text-center">全部用户</h1>
-        <ul>
-          {
-            /*
-            this.props.ContestsStore.contestList.map((item)=>{
-              return (
-                <li className="left mt50" key={item.id}>
-                  <h1>{item.title}</h1>
-                  <img width="225" height="150" src={item.thumb} />
-                  <h2>总奖金：{item.prize}</h2>
-                  <h3>参赛作品：{item.entries}</h3>
-                </li>
-                )
-            })
-            */
-          }
-        </ul>
+        <div className="component-banner">首页</div>
       </main>
     )
   }
