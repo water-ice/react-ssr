@@ -12,17 +12,17 @@ import { Provider } from 'mobx-react'
 // 挂载DOM节点
 const DOM = document.getElementById('app')
 
-import { ContestListState } from './store/store'
+import BattleState from './store/battle_list'
+import CooperationState from './store/cooperation_list'
 
-const inititalState = window.__INITIAL__STATE__ || {};
-
-// const GetContestListStore = new ContestListState(inititalState.ContestListState)
-// ContestListStore={GetContestListStore}
+var InitialState = window.__INITIAL__STATE__ || {};
 // render方法
 const render = Component => {
     ReactDOM.render(
         <AppContainer >
-            <Provider >
+            <Provider 
+                cooperationState={new CooperationState(InitialState.cooperationState)}
+                battleState={new BattleState(InitialState.battleState)}>
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>
