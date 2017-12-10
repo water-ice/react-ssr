@@ -5,8 +5,6 @@ const express = require('express');
 const favicon = require('serve-favicon');
 // 接口数据转化到res.body上
 const bodyParse = require('body-parser')
-// 服务器端session
-const session = require('express-session');
 // 服务器端渲染方法
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
@@ -20,21 +18,12 @@ app.use(bodyParse.json())
 // post请求也转化为req.body
 app.use(bodyParse.urlencoded({ extended:false}))
 
-// resave：每次请求是否重新生成session
-app.use(session({
-    maxAge: 10 * 60 * 1000,
-    name: 'testid',
-    resave: false,
-    saveUninitialized:false,
-    secret:"test secret"
-}))
 
 // 返回浏览器标题栏icon
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
 // api拦截
 app.use('/api',require('./proxy'))
-
 if(Config.isDev) {
     // 开发环境
     const devServer = require('./dev-server');
@@ -63,6 +52,6 @@ else {
 }
 // 全局的错误处理机制
 app.use(function(err,req,res,next){
-    console.log(err);
+    console.log("全局的信息错误处理："+err);
     res.status(500).send(err)
 })
