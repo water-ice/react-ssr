@@ -37,6 +37,7 @@ if(Config.isDev) {
             path.join(__dirname,'../client/entry_client.js')
         ]
     }
+    clientConf.output.path=path.resolve(__dirname,'../dev_dist'),
 
     // 开发服务器
     clientConf.devServer = {
@@ -64,7 +65,13 @@ if(Config.isDev) {
     }
     // 热更新
     clientConf.plugins.push(
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('develop'),
+                API_ENV: JSON.stringify('develop'),
+            }
+        }),        
     )
 }
 if(Config.isDev) {
@@ -113,7 +120,13 @@ else {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest',
             chunks: ['vendor']
-          })        
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production'),
+                API_ENV: JSON.stringify('production'),
+            }
+        }),                   
     )    
 }
 
