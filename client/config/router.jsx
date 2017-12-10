@@ -15,6 +15,8 @@ import PageLogin from '../pages/account/login';
 import PageRegister from '../pages/account/register';
 
 import PageTestApi from '../pages/test_api/index'
+
+import PageCooperation from '../pages/cooperation/index'
 export default () => [
   <Route key="1" path="/" component={ PageIndex } exact/>,
   <Route key="2" path="/battle" component={ PageBattle } />,
@@ -23,5 +25,6 @@ export default () => [
   <Route key="5" path="/account/" render={()=><Redirect to="/account/login" />} exact />,
   <Route key="6" path="/account/login" component={PageLogin} />,
   <Route key="7" path="/account/register" component ={PageRegister} />, 
-  <Route key="8" path="/test_api" component ={PageTestApi} /> 
+  <Route key="8" path="/cooperation" component ={PageCooperation} />, 
+  <Route key="9" path="/test_api" component ={PageTestApi} /> 
 ]
