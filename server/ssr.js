@@ -14,10 +14,11 @@ const asyncBootstrap = require('react-async-bootstrapper').default;
  * @param {*} stores 
  */
 const getStoreState = (stores) => {
-    return Object.keys(stores).reduce((result,storeName)=>{
-        result[storeName] = stores[storeName].toJson()
-        return result;
-    },{})
+    return Object.keys(stores).reduce((result, storeName) => {
+      result[storeName] = stores[storeName].toJson()
+      console.log(result)
+      return result
+    }, {})
 }
 /**
  * 
@@ -27,22 +28,25 @@ const getStoreState = (stores) => {
  * @param {http响应} res 
  */ 
 module.exports = (bundle, template, req, res) =>{ 
+    // 创建全局的store
+    const CreateGlobalStore = bundle.CreateStoreMap;
+    // react渲染的根组件
+    const CreateApp = bundle.default;
+    // 默认路由的上下文
+    const RouterContext = {}; 
+    // store实例
+    const stores =  CreateGlobalStore()
+    // console.log("[server/srr]:生成的stores如下：")
+    // console.log(stores)
+    // 编译react组件，生成项目代码。
+    const app = CreateApp(stores,RouterContext,req.url)
+
     return new Promise((resolve, reject)=>{
-        // 创建全局的store
-        const CreateStoreMapMethod = bundle.CreateStoreMap;
-        // react渲染的根组件
-        const CreateApp = bundle.default;
-        // 默认路由的上下文
-        const RouterContext = {}; 
-        // store实例
-        const stores =  CreateStoreMapMethod()
-        // 编译react组件，生成项目代码。
-        const app = CreateApp(stores,RouterContext,req.url)
         // 先执行项目代码，用来初始化获取数据
         asyncBootstrap(app)
         .then(()=>{
             // 获取到初始数据后，转化成字符串
-            const content = ReactSSR.renderToString(app);
+            const AppString = ReactSSR.renderToString(app);
             // 服务器端处理redirect，路由跳转
             if( RouterContext.url){
                 res.status(302).setHeader('Location', RouterContext.url);
@@ -55,7 +59,7 @@ module.exports = (bundle, template, req, res) =>{
             const helmetContent = helmet.rewind();
             // ejs引擎解析生成的模板，并将相应的参数传入禁区
             const html = ejs.render(template, {
-                appString:content,
+                appString:AppString,
                 initialState:serialize(state),
                 title:helmetContent.title.toString(),
                 meta:"<meta data-info='test' />",

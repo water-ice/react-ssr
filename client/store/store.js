@@ -1,11 +1,11 @@
-import ContestsStoreClass from './contests_store';
+import ContestListStore from './contest_list_store';
 
 export default {
-  ContestsStoreClass,
+  ContestListStore,
 }
 
 export const CreateStoreMap = () => {
   return {
-    Contests: new ContestsStoreClass()
+    ContestList: new ContestListStore()
   }
 }

@@ -12,14 +12,17 @@ import { Provider } from 'mobx-react'
 // 挂载DOM节点
 const DOM = document.getElementById('app')
 
-import ContestsStoreClass from './store/contests_store';
+import { ContestListState } from './store/store'
 
 const inititalState = window.__INITIAL__STATE__ || {};
+
+// const GetContestListStore = new ContestListState(inititalState.ContestListState)
+// ContestListStore={GetContestListStore}
 // render方法
 const render = Component => {
     ReactDOM.render(
         <AppContainer >
-            <Provider ContestsStore={new ContestsStoreClass(inititalState.ContetsStore)}>
+            <Provider >
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>

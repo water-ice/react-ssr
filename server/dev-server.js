@@ -101,6 +101,7 @@ module.exports = function(app) {
         // 获取到客户端服务器的模板
         getTemplateFromClient()
         .then(template => {
+            // console.log("[dev-server]:打包出来后的js文件："+ServerBundleModule)
             return SSRMethod(ServerBundleModule,template,req,res)
         })
         .catch(next)

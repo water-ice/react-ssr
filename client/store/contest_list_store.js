@@ -3,7 +3,9 @@ import {
   computed, 
   action 
 } from 'mobx';
+
 import http from '../../config/http'
+
 export default class ContestsStore {
   constructor({contestList} = {contestList:[]}){
     this.contestList = contestList
@@ -31,5 +33,8 @@ export default class ContestsStore {
         reject(err)
       })
     })
+  }
+  toJson(){
+    contestList:this.contestList
   }
 }

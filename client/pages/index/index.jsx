@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react'
 import Helmet from 'react-helmet' 
 import http from '../../../config/http';
  
-@inject("ContestsStore") @observer
+// @inject("ContestListStore") @observer
 export default class PageIndex extends React.Component {
   constructor(props){
     super(props)
@@ -14,22 +14,16 @@ export default class PageIndex extends React.Component {
       enties:[]
     }
   } 
-  asyncBootstrap() {   
-    http.get('/api/user/get_user_list')
-    .then(response => {
-      this.setState({
-        designers:response.data.info
-      })
-    })        
+  asyncBootstrap() {           
   }    
   componentDidMount(){ 
-    this.props.ContestsStore.getContestList()
+    // this.props.ContestsStore.getContestList()
   }
   componentWillMount(){
 
   }
   render(){
-    console.log(this.state)
+    // console.log(this.props)
     return (
       <main className="page-index main-container" >
         <Helmet>
@@ -38,6 +32,7 @@ export default class PageIndex extends React.Component {
         <h1 className="text-center">全部用户</h1>
         <ul>
           {
+            /*
             this.props.ContestsStore.contestList.map((item)=>{
               return (
                 <li className="left mt50" key={item.id}>
@@ -48,6 +43,7 @@ export default class PageIndex extends React.Component {
                 </li>
                 )
             })
+            */
           }
         </ul>
       </main>
