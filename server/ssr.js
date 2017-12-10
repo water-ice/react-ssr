@@ -15,8 +15,11 @@ const asyncBootstrap = require('react-async-bootstrapper').default;
  */
 const getStoreState = (stores) => {
     return Object.keys(stores).reduce((result, storeName) => {
+      // console.log('result 和 storeName 是：---------------')
+			// console.log(result)
+			// console.log(storeName)
+			// console.log(stores[storeName].toJson())  
       result[storeName] = stores[storeName].toJson()
-      console.log(result)
       return result
     }, {})
 }
@@ -36,6 +39,9 @@ module.exports = (bundle, template, req, res) =>{
     const RouterContext = {}; 
     // store实例
     const stores =  CreateGlobalStore()
+
+    // console.log('stores：-----------------')
+    // console.log(stores)
     // console.log("[server/srr]:生成的stores如下：")
     // console.log(stores)
     // 编译react组件，生成项目代码。
@@ -54,10 +60,14 @@ module.exports = (bundle, template, req, res) =>{
                 return;
             }            
             // 服务器端渲染后的初始数据，插入到html页面中
-            const state = getStoreState(stores)
+						const state = getStoreState(stores)
+						// console.log("获取数据后的stores为-----------")
+						// console.log(stores.ContestListStore.contestList)
             // 每个页面中传入的meta,title等信息
             const helmetContent = helmet.rewind();
-            // ejs引擎解析生成的模板，并将相应的参数传入禁区
+            // console.log('state如下:----------------')
+            // console.log(state)
+            // ejs引擎解析生成的模板，并将相应的参数传入
             const html = ejs.render(template, {
                 appString:AppString,
                 initialState:serialize(state),
