@@ -5,8 +5,6 @@ const express = require('express');
 const favicon = require('serve-favicon');
 // 接口数据转化到res.body上
 const bodyParse = require('body-parser')
-// 服务器端session
-const session = require('express-session');
 // 服务器端渲染方法
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
@@ -20,22 +18,12 @@ app.use(bodyParse.json())
 // post请求也转化为req.body
 app.use(bodyParse.urlencoded({ extended:false}))
 
-// resave：每次请求是否重新生成session
-app.use(session({
-    maxAge: 10 * 60 * 1000,
-    name: 'testid',
-    resave: false,
-    saveUninitialized:false,
-    secret:"test secret"
-}))
 
 // 返回浏览器标题栏icon
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
 // api拦截
-app.use('/api/user',require('./login-proxy'))
 app.use('/api',require('./proxy'))
-
 Config.isDev = false;
 if(Config.isDev) {
     // 开发环境
@@ -49,7 +37,7 @@ else {
     const serverEntryFile = require('../dist/server_entry.js');
     // client/index.html打包出来的页面
     const serverTemplate = fs.readFileSync(path.join(__dirname,'../dist/server.ejs'),'utf-8')
-    // 所有以static开头的请求，都以静态资源的形式返回
+    // 所有以public开头的请求，都以静态资源的形式返回
     app.use('/static',express.static(path.join(__dirname,'../dist')))
 
     // 所有请求都进入这里
@@ -65,6 +53,6 @@ else {
 }
 // 全局的错误处理机制
 app.use(function(err,req,res,next){
-    console.log(err);
+    console.log("全局的信息错误处理："+err);
     res.status(500).send(err)
 })
