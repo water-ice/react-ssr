@@ -1,11 +1,18 @@
-import ContestListStore from './contest_list_store';
+import BattleState from './battle_list';
+import CooperationState from './cooperation_list'
+export {
+  BattleState,
+  CooperationState,
+}
 
 export default {
-  ContestListStore,
+  BattleState,
+  CooperationState,
 }
 
 export const CreateStoreMap = () => {
   return {
-    ContestList: new ContestListStore()
+    battleState: new BattleState(),
+    cooperationState: new CooperationState(),
   }
 }
