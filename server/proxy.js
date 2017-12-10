@@ -3,18 +3,14 @@ const axios = require('axios');
 const qs = require('query-string') 
 const http = require('../config/http')
 const Config = require('../config/index')
-const apiDomain = Config.isApiDev ? Config.domain.dev:Config.domain.prod;
 
 module.exports = function(req,res,next){
     let path = req.path.replace('/api',''); 
-    // console.log("当前API_ENV为: "+process.env.API_ENV)
-    // console.log('当前Ajax完整请求路径为：'+`${apiDomain}${path}`)
-
-    http.ajax(`${apiDomain}${path}`,req.method,'')  
+    let isApiDev = req.headers.host.indexOf('whalesdesign')> -1? false:true;
+    let ApiDomain = isApiDev ? Config.domain.dev:Config.domain.prod
+    http.ajax(`${ApiDomain}${path}`,req.method,'')  
     .then(resp => {
-        console.log("代理返回为："+resp)
-        console.log("接口返回状态:"+resp.status)
-        console.log("返回数据为："+resp)
+
         if(resp.status == 200) {
             res.send(resp.data)
         }
