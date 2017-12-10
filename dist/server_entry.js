@@ -103,6 +103,7 @@ module.exports = require("react-helmet");
 
 var axios = __webpack_require__(3);
 var Config = __webpack_require__(15);
+
 var BaseUrl = Config.isApiDev ? Config.domain.dev : Config.domain.prod;
 /**
  * @function 接口请求方法
@@ -111,12 +112,8 @@ var BaseUrl = Config.isApiDev ? Config.domain.dev : Config.domain.prod;
  * @param method 请求方式
  */
 var ajax = function ajax(url, method, params) {
-    var WholeUrl = BaseUrl + url.replace('/api', '');
-    // console.log('process.env.API_ENV是'+process.env.API_ENV)
-    // console.log('process.env.NODE_ENV是'+process.env.NODE_ENV)
-    // console.log("接口完整路径为："+WholeUrl)
     return new Promise(function (resolve, reject) {
-        axios(WholeUrl, {
+        axios(url, {
             method: method,
             params: params,
             headers: {
@@ -1442,7 +1439,7 @@ var CooperationState = (_class = function () {
                 }
                 resolve();
             }).catch(function (err) {
-                console.log(err);
+                console.log("老师列表信息报错：" + err);
                 reject();
             });
         });
