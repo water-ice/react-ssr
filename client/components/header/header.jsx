@@ -21,7 +21,7 @@ export default class ComponentHeader extends React.Component {
             <Link className="nav-anchor" to='/battle'>活动</Link>
             <Link className="nav-anchor" to='/battle'>排行</Link>
             <Link className="nav-anchor" to='/battle'>了解精于</Link>
-            <Link className="nav-anchor" to='/battle'>商务合作</Link>
+            <Link className="nav-anchor" to='/cooperation'>商务合作</Link>
             <Link className="nav-anchor" to='/battle'>我有需求</Link>
           </div>
           <div className="module-account">
