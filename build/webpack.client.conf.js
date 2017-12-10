@@ -7,6 +7,7 @@ const Config = require('../config/index')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const NameAllModulesPlugin = require('name-all-modules-plugin')
 const clientConf =  WebpackMerge(baseConf,{
     entry: {
         "app":path.resolve(__dirname,'../client/entry_client.js'),
@@ -119,14 +120,21 @@ else {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest',
-            chunks: ['vendor']
+            minChunks: Infinity
         }),
+        new webpack.NamedModulesPlugin(),
+        new NameAllModulesPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production'),
-                API_ENV: JSON.stringify('production'),
+                NODE_ENV: JSON.stringify('production')
             }
-        }),                   
+        }),
+        new webpack.NamedChunksPlugin((chunk) => {
+            if (chunk.name) {
+                return chunk.name
+            }
+            return chunk.mapModules(m => path.relative(m.context, m.request)).join('_')
+        })                 
     )    
 }
 
