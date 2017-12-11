@@ -47,7 +47,7 @@ if(Config.isDev) {
         // 端口号
         port:Config.port.client,
         // 服务器根目录为打包出来的dist文件夹
-        contentBase:path.resolve(__dirname,'../dist'),
+        contentBase:path.resolve(__dirname,'../dev_dist'),
         // 热刷新配置：需要配合app.jsx中的module.hot
         hot:true,
         // 以黑色弹窗形式展示错误
