@@ -102,7 +102,7 @@ module.exports = require("react-helmet");
 
 
 var axios = __webpack_require__(3);
-var Config = __webpack_require__(15);
+var Config = __webpack_require__(16);
 
 var BaseUrl = Config.isApiDev ? Config.domain.dev : Config.domain.prod;
 /**
@@ -169,7 +169,7 @@ var _reactRouterDom = __webpack_require__(1);
 
 var _mobxReact = __webpack_require__(2);
 
-var _store = __webpack_require__(29);
+var _store = __webpack_require__(30);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -210,17 +210,21 @@ var _header = __webpack_require__(10);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _router = __webpack_require__(13);
+var _footer = __webpack_require__(13);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _router = __webpack_require__(14);
 
 var _router2 = _interopRequireDefault(_router);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _reactRouter = __webpack_require__(26);
-
-__webpack_require__(27);
+var _reactRouter = __webpack_require__(27);
 
 __webpack_require__(28);
+
+__webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -230,12 +234,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import PropTypes from 'prop-types'
-
-// import ComponentFooter from './components/footer/footer'
-
-// ,
-// <RouterMap key="2"  key='router' />,
-// <ComponentFooter key='footer'/>
 
 
 var App = function (_React$Component) {
@@ -252,7 +250,8 @@ var App = function (_React$Component) {
       'div',
       null,
       _react2.default.createElement(_header2.default, null),
-      _react2.default.createElement(_router2.default, null)
+      _react2.default.createElement(_router2.default, null),
+      _react2.default.createElement(_footer2.default, { key: 'footer' })
     );
   };
 
@@ -408,6 +407,54 @@ module.exports = "/static/images/ca7f9e50.png";
 
 
 exports.__esModule = true;
+exports.default = undefined;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GlobalFooter = function (_React$Component) {
+  _inherits(GlobalFooter, _React$Component);
+
+  function GlobalFooter() {
+    _classCallCheck(this, GlobalFooter);
+
+    return _possibleConstructorReturn(this, _React$Component.call(this));
+  }
+
+  GlobalFooter.prototype.render = function render() {
+    return _react2.default.createElement(
+      "footer",
+      { style: { "background": "#836FFF", "height": "200px" } },
+      _react2.default.createElement(
+        "h1",
+        { style: { "textAlign": "center" } },
+        "Global Footer Component"
+      )
+    );
+  };
+
+  return GlobalFooter;
+}(_react2.default.Component);
+
+exports.default = GlobalFooter;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
 
 var _react = __webpack_require__(0);
 
@@ -415,35 +462,35 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(15);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(17);
+var _index3 = __webpack_require__(18);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _picture = __webpack_require__(18);
+var _picture = __webpack_require__(19);
 
 var _picture2 = _interopRequireDefault(_picture);
 
-var _name = __webpack_require__(19);
+var _name = __webpack_require__(20);
 
 var _name2 = _interopRequireDefault(_name);
 
-var _login = __webpack_require__(20);
+var _login = __webpack_require__(21);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _register = __webpack_require__(22);
+var _register = __webpack_require__(23);
 
 var _register2 = _interopRequireDefault(_register);
 
-var _index5 = __webpack_require__(24);
+var _index5 = __webpack_require__(25);
 
 var _index6 = _interopRequireDefault(_index5);
 
-var _index7 = __webpack_require__(25);
+var _index7 = __webpack_require__(26);
 
 var _index8 = _interopRequireDefault(_index7);
 
@@ -456,7 +503,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -485,7 +532,7 @@ var _http = __webpack_require__(5);
 
 var _http2 = _interopRequireDefault(_http);
 
-__webpack_require__(16);
+__webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -535,7 +582,7 @@ var PageIndex = (_dec = (0, _mobxReact.inject)(function (stores) {
         _react2.default.createElement(
           'title',
           null,
-          '\u9996\u9875111'
+          '\u9996\u9875'
         )
       ),
       _react2.default.createElement(
@@ -551,7 +598,7 @@ var PageIndex = (_dec = (0, _mobxReact.inject)(function (stores) {
 exports.default = PageIndex;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -572,13 +619,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -675,7 +722,7 @@ var PageContest = (_dec = (0, _mobxReact.inject)("battleState"), _dec(_class = (
 exports.default = PageContest;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -719,7 +766,7 @@ var PagePictureBattleDetail = function (_React$Component) {
 exports.default = PagePictureBattleDetail;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -763,7 +810,7 @@ var PageNameBattleDetail = function (_React$Component) {
 exports.default = PageNameBattleDetail;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -778,7 +825,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _index = __webpack_require__(21);
+var _index = __webpack_require__(22);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -813,7 +860,7 @@ var PageLogin = function (_React$Component) {
 exports.default = PageLogin;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -877,7 +924,7 @@ var PageLogin = function (_React$Component) {
 exports.default = PageLogin;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -890,7 +937,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _register = __webpack_require__(23);
+var _register = __webpack_require__(24);
 
 var _register2 = _interopRequireDefault(_register);
 
@@ -925,7 +972,7 @@ var PageRegister = function (_React$Component) {
 exports.default = PageRegister;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -991,7 +1038,7 @@ var PageRegister = function (_React$Component) {
 exports.default = PageRegister;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1079,7 +1126,7 @@ var TestApi = function (_React$Component) {
 exports.default = TestApi;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1177,16 +1224,10 @@ var PageCooperation = (_dec = (0, _mobxReact.inject)("cooperationState"), _dec(_
 exports.default = PageCooperation;
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router");
-
-/***/ }),
 /* 27 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+module.exports = require("react-router");
 
 /***/ }),
 /* 28 */
@@ -1196,6 +1237,12 @@ module.exports = require("react-router");
 
 /***/ }),
 /* 29 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1204,11 +1251,11 @@ module.exports = require("react-router");
 exports.__esModule = true;
 exports.CreateStoreMap = exports.CooperationState = exports.BattleState = undefined;
 
-var _battle_list = __webpack_require__(30);
+var _battle_list = __webpack_require__(31);
 
 var _battle_list2 = _interopRequireDefault(_battle_list);
 
-var _cooperation_list = __webpack_require__(31);
+var _cooperation_list = __webpack_require__(32);
 
 var _cooperation_list2 = _interopRequireDefault(_cooperation_list);
 
@@ -1228,7 +1275,7 @@ var CreateStoreMap = exports.CreateStoreMap = function CreateStoreMap() {
 };
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1352,7 +1399,7 @@ var BattleState = (_class = function () {
 exports.default = BattleState;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
