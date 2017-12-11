@@ -8,6 +8,7 @@ module.exports = function(req,res,next){
     let path = req.path.replace('/api',''); 
     let isApiDev = req.headers.host.indexOf('whalesdesign')> -1? false:true;
     let ApiDomain = isApiDev ? Config.domain.dev:Config.domain.prod
+    // console.log("api域名为："+ApiDomain)
     http.ajax(`${ApiDomain}${path}`,req.method,'')  
     .then(resp => {
 
