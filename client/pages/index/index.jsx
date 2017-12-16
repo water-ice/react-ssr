@@ -5,11 +5,6 @@ import Helmet from 'react-helmet'
 import http from '../../../config/http';
 
 import '@style/page-index.less'; 
-@inject(stores =>{
-  return {
-    contestListStore:stores.contestListStore
-  }
-}) @observer
 export default class PageIndex extends React.Component {
   constructor(props){
     super(props)
@@ -31,7 +26,7 @@ export default class PageIndex extends React.Component {
     return (
       <main className="page-index" >
         <Helmet>
-          <title>首页</title>
+          <title>今日头条</title>
         </Helmet> 
         <div className="component-banner">首页</div>
       </main>
