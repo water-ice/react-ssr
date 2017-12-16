@@ -1,27 +1,34 @@
 const axios = require('axios');
 const Config = require('./index')
 
-let BaseUrl = Config.isApiDev ? Config.domain.dev :Config.domain.prod
 /**
  * @function 接口请求方法
  * @param url 请求连接
  * @param params 请求参数
  * @param method 请求方式
  */
-const ajax = (url,method,params) => { 
+const ajax = (url,method,params,headers) => { 
+
+
     return new Promise((resolve,reject)=>{
         axios(url, {
-            method,
-            params, 
-            headers:{
-                'Content-type':'application/x-www-form-urlencoded'
-            }
+            method:method,
+            params:params, 
+            headers:headers
         })
         .then(response => {
             // console.log("当前Ajax发送请求返回状态码为:"+response.status)
+            // console.log("接口为：" +url)
+
             resolve(response)
         })
-        .catch(reject)
+        .catch(err =>{
+            console.log('ajax错误拦截:')
+            // console.log(url);
+            // console.log(method)
+            // console.log(err)
+            reject(err)
+        })
     
     })
 }

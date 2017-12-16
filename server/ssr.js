@@ -6,6 +6,10 @@ const helmet = require('react-helmet').default;
 const serialize = require('serialize-javascript')
 // react服务器端渲染方法
 const ReactSSR = require('react-dom/server')
+// 配置
+const Config = require('../config/index')
+
+const axios = require('axios')
 // 异步获取数据依赖
 const asyncBootstrap = require('react-async-bootstrapper').default;
 
@@ -23,6 +27,7 @@ const getStoreState = (stores) => {
       return result
     }, {})
 }
+ 
 /**
  * 
  * @param {编译后的js文件} bundle 
@@ -46,6 +51,7 @@ module.exports = (bundle, template, req, res) =>{
     // console.log(stores)
     // 编译react组件，生成项目代码。
     const app = CreateApp(stores,RouterContext,req.url)
+
 
     return new Promise((resolve, reject)=>{
         // 先执行项目代码，用来初始化获取数据
@@ -76,9 +82,45 @@ module.exports = (bundle, template, req, res) =>{
                 link:"<link data-info='test'/>",
                 style:"<style data-info='test'></style>"
             })
-            // 接口返回html页面
-            res.send(html)
-            resolve()
+            // 如果请求的request中，有access参数，直接返回渲染好的html页面
+            if(req.cookies.access) { 
+                res.send(html)
+                resolve()    
+            } 
+            else {
+                // 通过request的host判断当前域名
+                let domain  =  Config.GetHostByRequest(req);
+                let _ip = req.connection.remoteAddress; 
+                // 获取初始的jwt
+                axios({
+                    url:domain+'/user/get_user_token',
+                    method:"GET", 
+                    headers:{
+                        'appid':Config.appid,
+                        'apptoken':Config.apptoken,
+                        'ip':_ip  
+                    }     
+                })  
+                .then((resp) =>{ 
+                    if(resp.status == 200) {
+                        if(resp.data.status == 1) {
+                            res.cookie('access',resp.data.jwt)
+                            res.send(html)
+                            resolve()      
+                        }  
+                    }
+                    else {
+                        // 此处需要有监听报告
+                        res.cookie('info','cannot get access');
+                        res.send(html)
+                        resolve()
+                    } 
+                })
+                .catch(error => {
+                    // 此处需要有监听报告
+                    reject();
+                })
+            }
         })
         .catch(reject)
     })

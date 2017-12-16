@@ -9,21 +9,23 @@ const bodyParse = require('body-parser')
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
 const Config = require('../config/index')
+
+const cookieParser = require('cookie-parser');
+
 // express实例
 const app = express();
-
+app.use(cookieParser());
 // application/json -> req.body
 app.use(bodyParse.json())
-
 // post请求也转化为req.body
 app.use(bodyParse.urlencoded({ extended:false}))
-
 
 // 返回浏览器标题栏icon
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
 // api拦截
 app.use('/api',require('./proxy'))
+
 if(Config.isDev) {
     // 开发环境
     const devServer = require('./dev-server');

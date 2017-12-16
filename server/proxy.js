@@ -5,13 +5,15 @@ const http = require('../config/http')
 const Config = require('../config/index')
 
 module.exports = function(req,res,next){
+    // /api/user/login => /user/login
     let path = req.path.replace('/api',''); 
-    let isApiDev = req.headers.host.indexOf('whalesdesign')> -1? false:true;
-    let ApiDomain = isApiDev ? Config.domain.dev:Config.domain.prod
-    // console.log("api域名为："+ApiDomain)
-    http.ajax(`${ApiDomain}${path}`,req.method,'')  
-    .then(resp => {
-
+    // 通过request的host中是否含有whalesdesign关键字判断环境
+    let ApiDomain = Config.GetHostByRequest(req)
+    // 传入完整域名，请求方式，请求参数，header
+    http.ajax(`${ApiDomain}${path}`,req.method,{},{
+        access:req.cookies.access
+    })  
+    .then(resp => {        
         if(resp.status == 200) {
             res.send(resp.data)
         }
@@ -20,7 +22,7 @@ module.exports = function(req,res,next){
         }
     })
     .catch(err => {
-        console.log('当前接口转发错误信息为:'+err)
+        // console.log('当前接口转发错误信息为:'+err)
         if(err.response) {
             res.status(500).send(err.response.data)
         }

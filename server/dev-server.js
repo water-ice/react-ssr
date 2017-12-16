@@ -95,7 +95,6 @@ module.exports = function(app) {
     app.use('/static',Proxy({
         target:"http://localhost:8088"
     }))
-
     app.get("*",function(req,res,next)
     {
         // 获取到客户端服务器的模板
@@ -105,6 +104,7 @@ module.exports = function(app) {
             return SSRMethod(ServerBundleModule,template,req,res)
         })
         .catch(next)
+
     })
     
     app.listen(Config.port.develop,(err)=>{
