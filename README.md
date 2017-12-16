@@ -1,72 +1,17 @@
-### hot-module-replacement
+# 写在前面
 
-不刷新页面，更新组件
+这是一个React服务器端渲染的框架，或者说是一个项目模板;他的诞生是为了满足大部分应用**多页面，需要SEO支持，高性能要求，且具有复杂业务逻辑**的需求。
 
+选择这个模板之前，有以下几点需要了解的：
 
-## 坑
-```
-getaddrinfo ENOTFOUND undefined undefined:80
-是因为dns找不到域名导致的
-```
+* 这个模板所生成的应用实质上仍然是一个单页面。
+* 他在生产环境使用了NodeJS作为中间件，处理用户信息存储，接口转发，渲染页面的功能。
+* 适用于中低复杂度的应用，如企业官网，擅长于列表页，详情页，介绍页等。
+* 不适用于管理系统，个人中心，移动端等SPA应用。
+* 开发环境支持：热更新+es6+less+mobx
+* 生产环境支持：静态资源压缩，混淆，重命名，拆分
+* 使用PM2进行部署，git更新代码，0延时重启
 
-## 逻辑分析
+### 设计思路
 
-npm run dev:server 之前应该先npm run build:server出代码
-
-
-### eslint
-"lint": "eslint --ext .js --ext .jsx src/",
-"precommit": "npm run lint"
-      {
-        // 在代码编译之前先进行eslint
-        enforce:"pre",
-        test:/.(js|jsx)/,
-        loader:"eslint-loader",
-        exclude:[
-          path.resolve(__dirname,'../node_modules')
-        ]
-      },
-
-### editorconfig
-
-### mobx
-
-官网:mobx.js.org
-支持mobx
-babel-plugin-transform-decorators-legacy
-
-
-### nodemon
-修改服务器端文件，不需要重新服务
-
-### 服务端渲染需要解决的问题
-
-1. 路由
-2. store
-3. 避免重复渲染
-4. 多个页面，数据初始化
-
-### 笔记
-
-*  开发环境逻辑
-
-client端
-
-webpack-dev-server -> webpack.client.conf.js(此处有dev环境的判断，添加配置项) -> 在内存生成代码(app.js,index.html) -> 客户端开发服务器(8088)
-
-server 端
-
-node start.js -> dev-server.js(实际执行) -> 获取html文件(通过axios前往客户端开发服务器获取) -> 获取资源文件(所有的资源文件通过http-proxy代理到客户端开发服务器) -> ReactDomServerRender(资源文件) ->添加到html文件 -> 服务器端服务器(3306) 
-                                        
-### 目录结构
-
-```
-client
-  config 第三类库的引用及配置,如router等
-  pages 页面文件,如index，battle,
-  store 存放项目store相关的文件
-  components: 非业务组件或多个业务间都需要用到的公用组件如dropdown,header,footer
-
-```
-
-### 模块划分
+### 解决方案
