@@ -28,7 +28,7 @@ export default class PageIndex extends React.Component {
         <Helmet>
           <title>今日头条</title>
         </Helmet> 
-        <div className="component-banner">首页</div>
+        <div className="component-banner" style={{minHeight:"2000px"}}>首页</div>
       </main>
     )
   }
