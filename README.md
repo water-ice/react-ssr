@@ -18,4 +18,5 @@
 
 * nodemon每次重启更新报告端口被占用
 
+
 nodemon 1.12.4版本在win10上的bug，详情请[点击](https://github.com/remy/nodemon/issues/1109)
