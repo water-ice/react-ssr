@@ -1,34 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react'
-import Helmet from 'react-helmet' 
-import http from '../../../config/http';
-
-import '@style/page-index.less'; 
+import Helmet from 'react-helmet'  
+import ComponentIndexHeader from '@components/header/header'
+import ComponentFooter from '@components/footer/footer'
+import '@style/page_index.less'; 
+import {Link} from 'react-router-dom'
 export default class PageIndex extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      designers:[],
-      contests:[],
-      enties:[]
-    }
-  } 
-  asyncBootstrap() {    
-  }    
-  componentDidMount(){ 
-    // this.props.contestsStore.getContestList()
-  }
-  componentWillMount(){
-    // this.props.contestListStore.getContestList();
-  }
+  constructor(){
+    super()
+  }  
   render(){ 
     return (
-      <main className="page-index" >
+      <main>
         <Helmet>
-          <title>今日头条</title>
+          <title>精于设计-世界设计师赏金游戏平台</title>
         </Helmet> 
-        <div className="component-banner" style={{minHeight:"2000px"}}>首页</div>
+        <ComponentIndexHeader history={this.props.history}/>
+        <div className="page-index">首页</div>
+        <ComponentFooter/>
       </main>
     )
   }
