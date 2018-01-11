@@ -17,7 +17,8 @@ let baseConf = {
             test: /\.js$/,
             loader: "babel-loader",
             exclude:[
-              path.join(__dirname,'../node_modules')
+              path.join(__dirname,'../node_modules'),
+              path.join(__dirname,'../client/static/fonts/iconfont.js')
             ]
           },     
           {
@@ -59,7 +60,12 @@ let baseConf = {
           "@pages":path.resolve(__dirname,'../client/pages'),
           "@components":path.resolve(__dirname,'../client/components'),
           "@store":path.resolve(__dirname,'../client/store'),
-          "@image":path.resolve(__dirname,'../client/static/images')
+          "@image":path.resolve(__dirname,'../client/static/images'),
+          "@utils":path.resolve(__dirname,'../client/utils'),
+          "@clientConfig":path.resolve(__dirname,'../client/config'),
+          "@serverConfig":path.resolve(__dirname,'../config'),
+          "@vendor": path.resolve(__dirname,'../client/vendor'),
+          '@plugins':path.resolve(__dirname,'../client/plugins'),
       },
       extensions: ['.js','.jsx','.css','less']
   },
