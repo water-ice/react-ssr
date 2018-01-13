@@ -1,18 +1,14 @@
-import BattleState from './battle_list';
-import CooperationState from './cooperation_list'
+import UserStore from './user'; 
+import TestStore from './test';
 export {
-  BattleState,
-  CooperationState,
+  UserStore, 
+  TestStore,
 }
 
-export default {
-  BattleState,
-  CooperationState,
-}
 
 export const CreateStoreMap = () => {
   return {
-    battleState: new BattleState(),
-    cooperationState: new CooperationState(),
+    UserStore: new UserStore(),  
+    TestStore: new TestStore() 
   }
 }
