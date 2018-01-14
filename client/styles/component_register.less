@@ -1,0 +1,206 @@
+
+.component_register_box{
+    .main-box{
+        .main-register-box{
+            width: 354px;
+            margin-left: 64px;
+            margin-right: 64px;
+            height: 342px;
+            input{
+                width:354px;
+                height:48px; 
+                background:#f2f2f2;
+                border-radius: 2px ; 
+                border: none;
+                margin-bottom: 16px;
+                padding-left:20px;
+                padding-bottom: 16px;
+                padding-top: 16px;
+                outline: none;
+                font-size:16px;
+                // &:focus{
+                //     border: 1px solid #65b4ff;
+                //     background-color: white;
+                // }
+            }
+            .user-mobile{
+                padding-left: 109px;
+            }
+            .register-area-code{
+                position: absolute;
+                left: 84px;
+                top: 319px;
+                font-size: 15px;
+                color: #666666;
+                margin-right: 8px;
+            }
+            .icon-arrows{
+                color: rgba(153,153,153,1);
+                font-size: 14px;
+                position: absolute;
+                top: 320px;
+                left: 129px;
+                transform:rotate(270deg);
+                cursor: pointer;
+            }
+            .register-user-bar{
+                position: absolute;
+                top: 315px;
+                left: 151px;
+                width: 0.5px;
+                height: 28px;
+                background-color: rgba(204,204,204,1);
+            }
+            .user-help-title{
+                position: absolute;
+                right: 64px;
+                color: #ff3b30;
+                font-size: 14px;
+                background-color:#f2f2f2;
+                opacity: 0.9;
+                line-height: 48px;
+                text-align: right;
+                padding-right: 16px;
+                padding-left: 10px;
+                height: 48px;
+                display: none;
+            }
+            .user-name-help{
+                top: 240.5px;
+            }
+            .user-number-help1{
+                top:305.5px;
+            }
+            .user-number-help2{
+                top:298.5px;
+            }
+            .user-password-help{
+                top:369.5px;
+            }
+            .register-password-input{
+                margin-bottom: 18px;
+            }
+            .register-identity{
+                width: 354px;
+                height: 48px;
+                p{
+                    float: left;
+                    width:170px;
+                    height:48px; 
+                    border-radius: 2px;
+                    text-align: center;
+                    line-height: 46px;
+                    border:1px solid rgba(204,204,204,1);
+                    span{
+                        font-size:16px;
+                        color:rgba(153,153,153,1);
+                    }
+                    .register-identity-one{
+                        color:rgba(101,180,255,1);
+                    }
+                }
+                .register-identity-p1{
+                    margin-right: 14px;
+                    border-color:rgba(101,180,255,1);
+                    cursor: pointer;
+                }
+                .register-identity-p2{
+                    cursor: pointer;
+                }
+            }
+            .register-agree{
+                margin-top: 20px;
+                width: 354px;
+                height: 16px;
+                p{
+                    float: left;
+                }
+                .register-agree-tick{
+                    width:14px;
+                    height:14px; 
+                    border-radius: 2px;
+                    border:1px solid rgba(204,204,204,1);
+                    margin-right: 6.6px;
+                    margin-top: 1px;
+                    cursor: pointer;
+                    .register-agree-icon{
+                        position: absolute;
+                        top: 505px;
+                        left: 65px;
+                        font-size: 12px;
+                    }
+                }
+                .register-agree-text{
+                    width:246px;
+                    height:16px; 
+                    font-size:14px;
+                    color:rgba(153,153,153,1);
+                    line-height:16px;
+                    .register-agreement{
+                        color: rgba(61,162,255,1);
+                        cursor: pointer;
+                     }
+                }
+            }
+            .register-button{
+                margin-top: 16px;
+                background-color: #BBBBBB;
+                cursor: text;
+            }
+        }
+        .register-area-code-kong{
+            position: absolute;
+            top: 355px;
+            left: 64px;
+            width: 174px;
+            background:rgba(255,255,255,0.9);
+            border: 1px solid rgba(238,238,238,1);
+            border-radius: 2px ;
+            .register-area-code-box{
+                width: 166px;
+                height: 231px;
+                overflow-y:scroll;
+                ul{
+                    li{
+                        margin-left: 20px;
+                        margin-bottom: 12px;
+                        font-size:14px;
+                        color:rgba(102,102,102,1);
+                        cursor: pointer;
+                    }
+                    li:first-child{
+                        margin-top: 16px;
+                    }
+                    .change-color{
+                        color:#65b4ff;
+                    }
+                }
+            }
+        }
+    
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+        ::-webkit-scrollbar  
+        {  
+            width: 5px;   
+            background-color: rgba(255,255,255,0.96); 
+            margin-right: 6px;
+            padding-right: 6px; 
+        }  
+        /*定义滚动条轨道*/  
+        ::-webkit-scrollbar-track  
+        {   
+            width: 12px;
+        } 
+        // 内层轨道
+        ::-webkit-scrollbar-track-piece{
+            width: 6px;
+        } 
+        /*定义滑块*/  
+        ::-webkit-scrollbar-thumb  
+        {     
+            background:rgba(204,204,204,1);
+            border-radius: 2px ;  
+            width: 6px;
+        }  
+    }
+} 
