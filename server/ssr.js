@@ -66,9 +66,7 @@ module.exports = (bundle, template, req, res) =>{
                 return;
             }            
             // 服务器端渲染后的初始数据，插入到html页面中
-						const state = getStoreState(stores)
-						// console.log("获取数据后的stores为-----------")
-						// console.log(stores.ContestListStore.contestList)
+            const state = getStoreState(stores)
             // 每个页面中传入的meta,title等信息
             const helmetContent = helmet.rewind();
             // console.log('state如下:----------------')
@@ -77,50 +75,10 @@ module.exports = (bundle, template, req, res) =>{
             const html = ejs.render(template, {
                 appString:AppString,
                 initialState:serialize(state),
-                title:helmetContent.title.toString(),
-                meta:"<meta data-info='test' />",
-                link:"<link data-info='test'/>",
-                style:"<style data-info='test'></style>"
+                title:helmetContent.title.toString(), 
             })
-            // 如果请求的request中，有access参数，直接返回渲染好的html页面
-            if(req.cookies.access) { 
-                res.send(html)
-                resolve()    
-            } 
-            else {
-                // 通过request的host判断当前域名
-                let domain  =  Config.GetHostByRequest(req);
-                let _ip = req.connection.remoteAddress; 
-                // 获取初始的jwt
-                axios({
-                    url:domain+'/user/get_user_token',
-                    method:"GET", 
-                    headers:{
-                        'appid':Config.appid,
-                        'apptoken':Config.apptoken,
-                        'ip':_ip  
-                    }     
-                })  
-                .then((resp) =>{ 
-                    if(resp.status == 200) {
-                        if(resp.data.status == 1) {
-                            res.cookie('access',resp.data.jwt)
-                            res.send(html)
-                            resolve()      
-                        }  
-                    }
-                    else {
-                        // 此处需要有监听报告
-                        res.cookie('info','cannot get access');
-                        res.send(html)
-                        resolve()
-                    } 
-                })
-                .catch(error => {
-                    // 此处需要有监听报告
-                    reject();
-                })
-            }
+            res.send(html)
+            resolve()    
         })
         .catch(reject)
     })
