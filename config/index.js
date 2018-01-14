@@ -1,20 +1,19 @@
 
 module.exports = {
   port:{
-    client:8088,
-    develop:3000,
-    product:3306
+    client:8087,
+    develop:3002,
+    product:3001
   },
   isDev:process.env.NODE_ENV === 'develop', 
+  isNode: (typeof window ==="undefined"),
   domain:{
     dev:"http://php.wangerniu.org",
-    prod:"http://api.whalesdesign.com"
-  },
-  GetHostByRequest(req){
-    let isApiDev = req.headers.host.indexOf('whalesdesign')> -1? false:true;
-    let ApiDomain = isApiDev ? this.domain.dev:this.domain.prod
-    return ApiDomain
+    prod:"http://php.wangerniu.org"
   },
   appid:"test appid",
-  apptoken:"test app token"
+  apptoken:"test app token",
+  getDomain(){
+    return (process.env.API_ENV =='production') ? this.domain.prod:this.domain.dev;
+  }
 }
