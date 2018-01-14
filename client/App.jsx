@@ -1,31 +1,24 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
-import ComponentHeader from './components/header/header';
-import ComponentFooter from './components/footer/footer'
-import RouterMap from './config/router';
-import {Link} from 'react-router-dom'
-import { withRouter } from 'react-router'
-
-import './static/fonts/iconfont.css' 
+import {inject,observer} from 'mobx-react'
+import { withRouter } from 'react-router-dom'
 import './ui/theme.less';
+import './static/fonts/iconfont.css'
+import RouterMap from './config/router';  
+@inject((stores)=>{
+  return {
+    UserStore:stores.UserStore
+  }
+}) @observer
 
 
-
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(){
     super()
-  }
+  } 
   render() { 
     return (
-      <div>
-        <ComponentHeader /> 
-        <RouterMap />
-        <ComponentFooter key='footer'/>
-      </div>
+      <RouterMap />
     )
   }
-}
-// 先不使用proptypes验证
-// App.PropTypes = {
-//   demoState:PropTypes.instanceOf(DemoState).isRequired
-// }
+} 
+export default withRouter(App)
