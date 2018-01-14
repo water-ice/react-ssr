@@ -15,7 +15,7 @@ const Config = require('../config/index')
 const getTemplateFromClient = () => {
     return new Promise((resolve,reject)=>{
         // 此处暂时是死路径，可以写成活的,文件命名由webpack.client.conf决定
-        axios.get('http://localhost:8088/static/server.ejs')
+        axios.get('http://localhost:8087/static/server.ejs')
         .then(res => {
             resolve(res.data)
         })
