@@ -1,7 +1,7 @@
 module.exports = {
 	"apps":[
 		{
-			name    : "whaleDesignTest",
+			name    : "testServer",
 			script  : "./server/start.js",
 			watch   : ["dist",'server','config'],
 			env     : {
