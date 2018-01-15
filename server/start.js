@@ -6,14 +6,19 @@ const favicon = require('serve-favicon');
 // 接口数据转化到res.body上
 const bodyParse = require('body-parser')
 // 服务器端渲染方法
+
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
 const Config = require('../config/index')
-
+// gzip
+var compression = require('compression')
 const cookieParser = require('cookie-parser');
 
 // express实例
 const app = express();
+// 开gzip
+app.use(compression())
+
 app.use(cookieParser());
 // application/json -> req.body
 app.use(bodyParse.json())
@@ -35,7 +40,7 @@ else {
     // 生产环境
     
     // client/entry_server.js使用webpack打包后的，供给服务器渲染的react组件
-    const serverEntryFile = require('../dist/server_entry.js');
+    const serverEntryFile = require(path.resolve(__dirname,'../dist/server_entry.js'));
     // client/index.html打包出来的页面
     const serverTemplate = fs.readFileSync(path.join(__dirname,'../dist/server.ejs'),'utf-8')
     // 所有以public开头的请求，都以静态资源的形式返回
