@@ -1,7 +1,7 @@
 module.exports = {
 	"apps":[
 		{
-			name    : "testServer",
+			name    : "ReactSSR",
 			script  : "./server/start.js",
 			watch   : ["dist",'server','config'],
 			env     : {
