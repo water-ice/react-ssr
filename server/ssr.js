@@ -36,8 +36,9 @@ const getStoreState = (stores) => {
  * @param {http响应} res 
  */ 
 module.exports = (bundle, template, req, res) =>{ 
-    console.log('在SSR方法中获取session:')
-    console.log(req.session)
+    // console.log('在SSR方法中获取session:')
+    // console.log(req.session)
+
     // 创建全局的store
     const CreateGlobalStore = bundle.CreateStoreMap;
     // react渲染的根组件
@@ -46,7 +47,10 @@ module.exports = (bundle, template, req, res) =>{
     const RouterContext = {}; 
     // store实例
     const stores =  CreateGlobalStore()
-
+    if(req.session.user) {
+        console.log('服务器上有user数据')
+        stores.UserStore.setUserInfo(req.session.user)
+    }
     // console.log('stores：-----------------')
     // console.log(stores)
     // console.log("[server/srr]:生成的stores如下：")

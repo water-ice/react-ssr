@@ -5,13 +5,7 @@ const base64 = require('../config/base64');
 
 module.exports = function(req,res,next){  
     let realPath =  req.path.replace('/api/user','');
-    let wholePath = Config.getDomain()+realPath; 
-    console.log('header数据')
-    console.log(req.headers)
-    console.log('connection数据')
-    console.log(req.connection.remoteAddress)
-    console.log('socket数据')
-    console.log(req.socket.remoteAddress)
+    let wholePath = Config.getDomain()+realPath;  
     http.ajax(wholePath,req.method,req.body,req.params,{
         token:req.session.token || ''
     })  
