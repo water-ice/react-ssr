@@ -1,0 +1,93 @@
+.plugin-message {      
+    position: fixed;
+    z-index: 1010;
+    width: 100%;
+    top: 16px;
+    left: 0;
+    pointer-events: none;
+    .plugin-message-item {
+        text-align: center;
+        margin-top: 30px;
+        &:first-child {
+            margin-top: 0;
+        }
+        .iconfont {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .message-success {
+            color: #52c41a;
+        }
+        .message-info {
+            color: #1890ff;
+        }
+        .message-error {
+            color: #f5222d;
+        }
+        .plugin-message-content {
+            width: 400px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 4px;
+            background: #fff;
+            display: inline-block;
+            pointer-events: all;
+            box-shadow: 0px 1px 3px #ccc;
+            overflow: hidden;
+        }
+        .message-in {
+            -webkit-animation-name: MessageMoveIn;
+            animation-name: MessageMoveIn;
+            -webkit-animation-duration: 0.3s;
+                    animation-duration: 0.3s;  
+            animation-timing-function: ease-in-out;          
+        }
+        .message-out {
+            -webkit-animation-name: MessageMoveOut;
+            animation-name: MessageMoveOut;
+            -webkit-animation-duration: 0.3s;
+                    animation-duration: 0.3s;  
+            animation-timing-function: ease-in-out;                              
+        }
+        @-webkit-keyframes MessageMoveOut {
+            0% {
+              opacity: 1; 
+            }
+            100% {
+              opacity: 0; 
+            }
+        }
+        @keyframes MessageMoveOut {
+            0% {
+                opacity: 1; 
+            }
+            100% {
+                opacity: 0; 
+            }
+        }  
+        @-webkit-keyframes MessageMoveIn {
+            0% {
+                opacity: 0; 
+                width: 0;
+                height: 0;
+                margin-top: -10px;
+            }
+            100% {
+                opacity: 1; 
+                width: 400px;
+                height: 80px;
+                margin-top: 0;
+            }
+        }
+        @keyframes MessageMoveIn {
+            0% {
+                opacity: 0; 
+                margin-top: -10px;
+            }
+            100% {
+                opacity: 1; 
+                margin-top: 0;
+            }
+        }              
+    }
+}
