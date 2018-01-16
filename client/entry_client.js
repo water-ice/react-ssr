@@ -12,6 +12,8 @@ import { Provider } from 'mobx-react'
 // 挂载DOM节点
 const DOM = document.getElementById('app')
 
+const InitialState = window.SERVER_DATA || {};
+
 import { UserStore,TestStore } from '@store/store';
    
 const TestStoreData = new TestStore(InitialState.TestStore.datas);                            
