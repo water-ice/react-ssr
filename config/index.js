@@ -8,8 +8,7 @@ module.exports = {
   isDev:process.env.NODE_ENV === 'develop', 
   isNode: (typeof window ==="undefined"),
   domain:{
-    // dev:"http://php.wangerniu.org",
-    dev:"http://api.lips-gp.top",
+    dev:"http://php.wangerniu.org",
     prod:"http://php.wangerniu.org"
   },
   appid:"test appid",
