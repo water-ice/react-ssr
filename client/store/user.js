@@ -4,7 +4,8 @@ import {
     toJS,
 } from 'mobx'
 export default class UserStore {
-    constructor(){
+    constructor( data){
+        this.user = data;
     }
     @observable user = {
         isLogin:false,

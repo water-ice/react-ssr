@@ -15,14 +15,18 @@ const DOM = document.getElementById('app')
 const InitialState = window.SERVER_DATA || {};
 
 import { UserStore,TestStore } from '@store/store';
-   
+
+const userData = InitialState.UserStore.user;
+console.log(userData)
+const UserStoreData = new UserStore(userData)
+
 const TestStoreData = new TestStore(InitialState.TestStore.datas);                            
 // console.log(TestStoreData)
 // render方法
 const render = Component => {
     ReactDOM.render(
         <AppContainer >
-            <Provider TestStore={TestStoreData}  UserStore={new UserStore()}>
+            <Provider TestStore={TestStoreData}  UserStore={UserStoreData}>
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>

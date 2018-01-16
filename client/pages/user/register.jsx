@@ -55,7 +55,12 @@ class PageRegister extends React.Component {
 				alert(response.data.errMsg)
 			}
 			else {
-				http.post('/api/user/user/getUserInfo') 
+				http.post('/api/user/user/getUserInfo').
+				then(response => {
+					if(response) {
+						window.location.href = '/'
+					}
+				}) 
 			}
 		})
 	}
