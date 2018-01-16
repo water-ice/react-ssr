@@ -19,7 +19,8 @@ export default class ComponentHeader extends React.Component {
   Logout(){ 
   } 
   render(){ 
-	const user = this.props.UserStore;
+    const user = this.props.UserStore;
+    console.log(user)
     return (
       <header className="component-header">
         <img className="logo" src="" alt="LOGO"/>
