@@ -93,10 +93,10 @@ serverComplier.watch({}, (err,stats) => {
 module.exports = function(app) {
 
     app.use('/static',Proxy({
-        target:"http://localhost:8088"
+        target:"http://localhost:8087"
     }))
     app.get("*",function(req,res,next)
-    {
+    { 
         // 获取到客户端服务器的模板
         getTemplateFromClient()
         .then(template => {

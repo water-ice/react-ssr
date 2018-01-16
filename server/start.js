@@ -11,22 +11,42 @@ const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
 const Config = require('../config/index')
 // gzip
-var compression = require('compression')
+const compression = require('compression')
+// cookie解析
 const cookieParser = require('cookie-parser');
+
+// session
+const session = require('express-session')
 
 // express实例
 const app = express();
+
 // 开gzip
 app.use(compression())
 
-app.use(cookieParser());
+// 开cookie解析 
+app.use(cookieParser('1'));
+
+// 开session
+app.use(session({ 
+    secret:"1",
+    resave: false,
+    saveUninitialized:true,
+    cookie: {        
+        maxAge:1000 * 60 ,
+    }
+}));
 // application/json -> req.body
 app.use(bodyParse.json())
+
 // post请求也转化为req.body
 app.use(bodyParse.urlencoded({ extended:false}))
 
 // 返回浏览器标题栏icon
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
+
+// 用户接口拦截
+app.use('/api/user',require('./proxy-user'))
 
 // api拦截
 app.use('/api',require('./proxy'))
