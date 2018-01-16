@@ -7,7 +7,8 @@ import {
 
 import PageIndex from '../pages/index/index';
 
-import PageUserIndex from '../pages/user/index';
+import PageUserRegister from '@pages/user/register';
+import PageUserLogin from '@pages/user/login';
 
 import PageTest from '@pages/test/test'
 
@@ -23,7 +24,9 @@ export default class RouterMap extends React.Component {
 
   
         // 登录注册部分
-        <Route key="user" path="/user" component={PageUserIndex} exact />,
+        <Route key="user" path="/user/register" component={PageUserRegister} />,
+        <Route key="user" path="/user/login" component={PageUserLogin} />,
+
         <Route key="test" path="/test" component={PageTest} />,
         
         <Route component={Page404} />,
