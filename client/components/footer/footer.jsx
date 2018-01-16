@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '@style/component_footer.less';
+import '@style/footer/component_footer.less';
 
 export default class GlobalFooter extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ export default class GlobalFooter extends React.Component {
   render(){
     return(
       <footer className="component-footer">
-        footer
+        @copyright 2017  @wangerniu
       </footer>
     )
   }
