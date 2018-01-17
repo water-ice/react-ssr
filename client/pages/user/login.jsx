@@ -16,9 +16,7 @@ class ComponentLogin extends React.Component {
 			 
 		}
 	}   
-	test(){
-		absolteHttp.post('http://api.lips-gp.top/index/index/get_addr')
-		relativeHttp.post('/api/index/index/get_addr')
+	test(){ 
 	} 
 	render() { 
  
