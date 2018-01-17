@@ -50,10 +50,11 @@ app.use(bodyParse.urlencoded({ extended:false}))
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
 app.use('/api/user',proxy(Config.getDomain(),{
-    // node发送给server之前拦截：改path
+    // node发送给server之前拦截path
     proxyReqPathResolver(req){
         return req.path.replace('/api/user','')
     }, 
+    // node发送给server之前拦截header，加token
     proxyReqOptDecorator(proxyReqOpts, srcReq){
         proxyReqOpts.headers['token'] = srcReq.session.token || '';
         return proxyReqOpts;
@@ -62,6 +63,7 @@ app.use('/api/user',proxy(Config.getDomain(),{
     userResDecorator(proxyRes,proxyResData,req,res){
         const data = JSON.parse(proxyResData.toString('utf8')); 
         const realPath = req.path;
+        console.log(data)
         // console.log(data)
         if(realPath == '/user/register') { 
             req.session.token = data.info.token;
