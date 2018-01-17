@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,NavLink} from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import { inject , observer} from 'mobx-react';
 
 import '@style/header/component_header.less';
@@ -27,6 +27,9 @@ export default class ComponentHeader extends React.Component {
     .then(response => {
       if(response.data.status == 1) { 
         this.props.UserStore.clearUserInfo();
+        this.setState({
+          user:{}
+        })
       }
       else {
         alert(response.data.message)
@@ -37,8 +40,14 @@ export default class ComponentHeader extends React.Component {
     const user = this.state.user || {};    
     return (
       <header className="component-header">
-        <img className="logo" src="" alt="LOGO"/>
+        <a href="/">
+          <img className="logo" src="" alt="LOGO"/>
+        </a>
         <div className="main"> 
+        <nav className="nav">
+          <Link to='/list'>列表</Link>
+          <a href="/list">列表</a>
+        </nav>
 			{
 				(user.uid)?
 				(
