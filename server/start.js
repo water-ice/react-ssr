@@ -5,8 +5,11 @@ const express = require('express');
 const favicon = require('serve-favicon');
 // 接口数据转化到res.body上
 const bodyParse = require('body-parser')
-// 服务器端渲染方法
+// 代理方法
+const proxy = require('express-http-proxy');
 
+
+// 服务器端渲染方法
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
 const Config = require('../config/index')
@@ -46,11 +49,45 @@ app.use(bodyParse.urlencoded({ extended:false}))
 // 返回浏览器标题栏icon
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
 
-// 用户接口拦截
-app.use('/api/user',require('./proxy-user'))
+app.use('/api/user',proxy(Config.getDomain(),{
+    // node发送给server之前拦截：改path
+    proxyReqPathResolver(req){
+        return req.path.replace('/api/user','')
+    }, 
+    proxyReqOptDecorator(proxyReqOpts, srcReq){
+        proxyReqOpts.headers['token'] = srcReq.session.token || '';
+        return proxyReqOpts;
+    },
+    // node返回给client之前拦截
+    userResDecorator(proxyRes,proxyResData,req,res){
+        const data = JSON.parse(proxyResData.toString('utf8')); 
+        const realPath = req.path;
+        // console.log(data)
+        if(realPath == '/user/register') { 
+            req.session.token = data.info.token;
+        }
+        if(realPath == '/user/getUserInfo') { 
+            req.session.user = data 
+        }
+        if(realPath == '/user/logout') {
+            delete req.session.user
+            delete req.session.token 
+        }
+        return JSON.stringify(data);
+    }
+}))
 
-// api拦截
-app.use('/api',require('./proxy'))
+app.use('/api',proxy(Config.getDomain(),{
+    proxyReqPathResolver(req){ 
+        return req.path.replace('/api','')
+    } 
+}))
+
+// // 用户接口拦截
+// app.use('/api/user',require('./proxy-user'))
+
+// // api拦截
+// app.use('/api',require('./proxy'))
 
 if(Config.isDev) {
     // 开发环境

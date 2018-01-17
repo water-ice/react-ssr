@@ -51,6 +51,7 @@ class PageRegister extends React.Component {
 			passwordTwice
 		})
 		.then(response => {
+			console.log(response);
 			if(response.data.status == 0) {
 				alert(response.data.errMsg)
 			}
@@ -58,6 +59,7 @@ class PageRegister extends React.Component {
 				http.post('/api/user/user/getUserInfo').
 				then(response => {
 					if(response) {
+						return;
 						window.location.href = '/'
 					}
 				}) 
