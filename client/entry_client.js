@@ -16,8 +16,8 @@ const InitialState = window.SERVER_DATA || {};
 
 import { UserStore,TestStore } from '@store/store';
 
-const userData = InitialState.UserStore.user;
-console.log(userData)
+const userData = InitialState.UserStore.user || {}; 
+
 const UserStoreData = new UserStore(userData)
 
 const TestStoreData = new TestStore(InitialState.TestStore.datas);                            
