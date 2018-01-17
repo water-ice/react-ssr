@@ -66,13 +66,13 @@ app.use('/api/user',proxy(Config.getDomain(),{
         console.log(data)
         // console.log(data)
         if(realPath == '/user/register') { 
-            req.session.token = data.info.token;
+            req.session.token = data.info.token || '';
         }
         if(realPath == '/user/getUserInfo') { 
-            req.session.user = data 
+            req.session.user = data || {}
         }
         if(realPath == '/user/logout') {
-            delete req.session.user
+            delete req.session.user 
             delete req.session.token 
         }
         return JSON.stringify(data);
