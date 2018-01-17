@@ -24,7 +24,7 @@ const TestStoreData = new TestStore(InitialState.TestStore.datas);
 // console.log(TestStoreData)
 // render方法
 const render = Component => {
-    ReactDOM.render(
+    ReactDOM.hydrate (
         <AppContainer >
             <Provider TestStore={TestStoreData}  UserStore={UserStoreData}>
                 <BrowserRouter>   
