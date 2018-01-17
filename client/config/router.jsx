@@ -13,6 +13,9 @@ import PageUserLogin from '@pages/user/login';
 import PageTest from '@pages/test/test'
 
 import Page404 from '@pages/404';
+
+import PageList from '@pages/list';
+
 export default class RouterMap extends React.Component {
   constructor(props) {
     super(props)
@@ -28,6 +31,8 @@ export default class RouterMap extends React.Component {
         <Route key="user" path="/user/login" component={PageUserLogin} />,
 
         <Route key="test" path="/test" component={PageTest} />,
+
+        <Route key="list" path="/list" component={PageList} />,
         
         <Route component={Page404} />,
       </Switch>
