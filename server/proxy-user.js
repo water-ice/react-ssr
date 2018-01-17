@@ -15,7 +15,8 @@ module.exports = function(req,res,next){
         if(response.status == 200 && response.data.status == 1) {
             if(realPath == '/user/register') {
                 // 注册成功 
-                req.session.token = response.data.info.token; 
+                req.session.token = response.data.info.token;
+                 
             }
             if(realPath == '/user/getUserInfo') { 
                 req.session.user = response.data 

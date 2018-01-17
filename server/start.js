@@ -29,6 +29,7 @@ app.use(cookieParser('1'));
 
 // 开session
 app.use(session({ 
+    name:"sid",
     secret:"1",
     resave: false,
     saveUninitialized:true,
