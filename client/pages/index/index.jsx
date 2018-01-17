@@ -2,10 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react'
 import Helmet from 'react-helmet'  
+import {Link} from 'react-router-dom'
+
 import ComponentIndexHeader from '@components/header/header'
 import ComponentFooter from '@components/footer/footer'
+
 import '@style/page_index.less'; 
-import {Link} from 'react-router-dom'
+
 export default class PageIndex extends React.Component {
   constructor(){
     super()
