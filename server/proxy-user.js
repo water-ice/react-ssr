@@ -14,18 +14,17 @@ module.exports = function(req,res,next){
         console.log('服务器返回值为：'+response.data.status);
         if(response.status == 200 && response.data.status == 1) {
             if(realPath == '/user/register') {
-                // 注册成功
-                console.log('设置session成功')
-                req.session.token = response.data.info.token;
-                console.log(req.session)
+                // 注册成功 
+                req.session.token = response.data.info.token; 
             }
-            if(realPath == '/user/getUserInfo') {
-                console.log('用户信息session设置成功')
-                req.session.user = response.data
-                console.log(req.session)
+            if(realPath == '/user/getUserInfo') { 
+                req.session.user = response.data 
+            }
+            if(realPath == '/user/logout') {
+                delete req.session.user 
             }
         }
-        res.status(response.status).send(response.data.info)
+        res.status(response.status).send(response.data)
     })
     .catch(err => {
         console.log('【proxy-user代理报错】')
