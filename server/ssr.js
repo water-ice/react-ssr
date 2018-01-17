@@ -48,8 +48,9 @@ module.exports = (bundle, template, req, res) =>{
     // store实例
     const stores =  CreateGlobalStore()
     if(req.session.user) {
-        console.log('服务器上有user数据')
-        stores.UserStore.setUserInfo(req.session.user)
+        console.log('服务器上有user数据，user数据为：')
+        console.log(req.session.user)
+        stores.UserStore.setUserInfo(req.session.user.info)
     }
     // console.log('stores：-----------------')
     // console.log(stores)
