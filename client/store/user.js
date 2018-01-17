@@ -2,26 +2,23 @@ import {
     observable,
     action,
     toJS,
+    autorun
 } from 'mobx'
 export default class UserStore {
-    constructor( data){
-        this.user = data;
+    constructor( data){  
+        this.user = data|| {}; 
     }
-    @observable user = {
-        isLogin:false,
-        info:{}
-    }
-    @action setUserInfo(userInfo){
-        this.user.info = userInfo;
-        this.user.isLogin = true;
+    @observable user = {}
+    @action setUserInfo(userInfo){ 
+        this.user = userInfo || {};
     }
     @action getUserInfo(){
-        return this.user.info;
+        return this.user
     }
     @action clearUserInfo(){
-        this.user.info = {};
-        this.user.isLogin = false;
+        this.user = {};
     }
+
     toJson(){
         return { 
             user:toJS(this.user)
