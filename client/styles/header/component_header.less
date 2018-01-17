@@ -20,4 +20,25 @@
 			color: rgba(255,255,255,1)
 		}		
 	}
+	.user {
+		position: relative;
+		&:hover {
+			.operate {
+				display: block;
+			}
+		}
+		.operate {
+			position: absolute;
+			display: none;
+			width: 100px;
+			margin-left: -60px; 
+			text-align: center;
+			background-color: rgba(0,0,0,0.8);
+			color: rgba(255,255,255,1);
+			border-radius: 4px;
+			li { 			
+				padding: 10px 0;
+			}
+		}
+	}
 }
