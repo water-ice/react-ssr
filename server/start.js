@@ -33,7 +33,7 @@ app.use(session({
     resave: false,
     saveUninitialized:true,
     cookie: {        
-        maxAge:1000 * 60 ,
+        maxAge:1000 * 60 * 5,
     }
 }));
 // application/json -> req.body
