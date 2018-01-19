@@ -14,19 +14,31 @@ const DOM = document.getElementById('app')
 
 const InitialState = window.SERVER_DATA || {};
 
-import { UserStore,TestStore } from '@store/store';
+import { UserStore,TestStore,ListStore } from '@store/store';
 
 const userData = InitialState.UserStore.user || {}; 
 
 const UserStoreData = new UserStore(userData)
 
-const TestStoreData = new TestStore(InitialState.TestStore.datas);                            
+const TestStoreData = new TestStore(InitialState.TestStore.datas);   
+
+const List1Data = InitialState.ListStore.list1;
+const List2Data = InitialState.ListStore.list2;
+console.log(List1Data,List2Data)
+const ListStoreData = new ListStore(
+                                List1Data,
+                                List2Data,
+                            )
+
 // console.log(TestStoreData)
 // render方法
 const render = Component => {
     ReactDOM.hydrate (
         <AppContainer >
-            <Provider TestStore={TestStoreData}  UserStore={UserStoreData}>
+            <Provider 
+                ListStore = {ListStoreData}
+                TestStore={TestStoreData}  
+                UserStore={UserStoreData}>
                 <BrowserRouter>   
                     <Component/>
                 </BrowserRouter>
