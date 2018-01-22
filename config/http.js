@@ -7,8 +7,7 @@ const qs = require('query-string')
  * @param data 请求参数
  * @param method 请求方式
  */
-axios.interceptors.request.use(function (config) {
-    // console.log(config)
+axios.interceptors.request.use(function (config) { 
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -34,11 +33,11 @@ const ajax = (realPath,method,data,params,headers) => {
         })
         .catch(err =>{
             console.log('【http.js报错】')
-            console.log(err)
-            console.log(realPath);
-            console.log(method)
-            console.log(headers)
-            console.log(data)
+            // console.log(err)
+            // console.log(realPath);
+            // console.log(method)
+            // console.log(headers)
+            // console.log(data)
             reject(err)
         })
     

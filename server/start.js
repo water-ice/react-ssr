@@ -81,8 +81,15 @@ app.use('/api/user',proxy(Config.getDomain(),{
 
 app.use('/api',proxy(Config.getDomain(),{
     proxyReqPathResolver(req){ 
+        console.log(req.path)
+        console.log(req.headers)
         return req.path.replace('/api','')
-    } 
+    },
+    proxyReqOptDecorator(proxyReqOpts, srcReq){
+        proxyReqOpts.headers['token'] = srcReq.session.token || '';
+        // console.log(srcReq.headers)
+        return proxyReqOpts;
+    },     
 }))
 
 // // 用户接口拦截
