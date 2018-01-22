@@ -24,7 +24,9 @@ const TestStoreData = new TestStore(InitialState.TestStore.datas);
 
 const List1Data = InitialState.ListStore.list1;
 const List2Data = InitialState.ListStore.list2;
-console.log(List1Data,List2Data)
+
+// console.log(List1Data,List2Data)
+
 const ListStoreData = new ListStore(
                                 List1Data,
                                 List2Data,
