@@ -10,7 +10,7 @@ export default class PageList extends Component {
     constructor(){
         super()
     }
-    asyncBootstrap(){
+    asyncBootstrap(){ 
         const list1 = this.props.ListStore.getList1()
         const list2 = this.props.ListStore.getList2()
         return Promise.all([list1,list2])
