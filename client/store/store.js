@@ -8,10 +8,10 @@ export {
 }
 
 
-export const CreateStoreMap = () => {
+export const CreateStoreMap = (cookie) => {
   return {
-    UserStore: new UserStore(),  
-    TestStore: new TestStore(),
-    ListStore: new ListStore(), 
+    UserStore: new UserStore(cookie),  
+    TestStore: new TestStore(cookie),
+    ListStore: new ListStore(cookie), 
   }
 }

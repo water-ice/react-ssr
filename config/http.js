@@ -8,6 +8,7 @@ const qs = require('query-string')
  * @param method 请求方式
  */
 axios.interceptors.request.use(function (config) { 
+    console.log(config);
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -15,7 +16,7 @@ axios.interceptors.request.use(function (config) {
 });
 
 let ApiDomain = Config.getDomain()
-const ajax = (realPath,method,data,params,headers) => {    
+const ajax = (realPath,method = 'POST',data = {},params = {},headers = {}) => {    
     return new Promise((resolve,reject)=>{
         axios({
             url:realPath,
@@ -45,13 +46,13 @@ const ajax = (realPath,method,data,params,headers) => {
 }
 module.exports = {
     ajax,
-    get(url,data,params,headers = {}){
-        return ajax(url,'GET',data,headers)
+    get(url,data = {},params = {},headers = {}){
+        return ajax(url,'GET',data,params,headers)
     },
-    post(url,data,params,headers = {}){
-        return ajax(url,'POST',data,headers)
+    post(url,data = {} ,params = {},headers = {}){
+        return ajax(url,'POST',data,params,headers)
     },
-    upload(url,data,params,progress){
+    upload(url,data = {},params = {},progress = {}){
         let path = url.replace('/api','')
         return new Promise((resolve,reject) =>{
             axios({

@@ -8,7 +8,6 @@ const bodyParse = require('body-parser')
 // 代理方法
 const proxy = require('express-http-proxy');
 
-
 // 服务器端渲染方法
 const SSR = require('./ssr')
 // 项目配置如:端口号，环境变量等
@@ -28,18 +27,18 @@ const app = express();
 app.use(compression())
 
 // 开cookie解析 
-app.use(cookieParser('1'));
+// app.use(cookieParser('1'));
 
 // 开session
-app.use(session({ 
-    name:"sid",
-    secret:"1",
-    resave: false,
-    saveUninitialized:true,
-    cookie: {        
-        maxAge:1000 * 60 * 5,
-    }
-}));
+// app.use(session({ 
+//     name:"sid",
+//     secret:"1",
+//     resave: false,
+//     saveUninitialized:true,
+//     cookie: {        
+//         maxAge:1000 * 60 * 5,
+//     }
+// }));
 // application/json -> req.body
 app.use(bodyParse.json())
 
@@ -55,25 +54,36 @@ app.use('/api/user',proxy(Config.getDomain(),{
         return req.path.replace('/api/user','')
     }, 
     // node发送给server之前拦截header，加token
-    proxyReqOptDecorator(proxyReqOpts, srcReq){
-        proxyReqOpts.headers['token'] = srcReq.session.token || '';
+    proxyReqOptDecorator(proxyReqOpts, srcReq){ 
         return proxyReqOpts;
     },
     // node返回给client之前拦截
     userResDecorator(proxyRes,proxyResData,req,res){
         const data = JSON.parse(proxyResData.toString('utf8')); 
-        const realPath = req.path;
-        console.log(data)
+        const realPath = req.path; 
         // console.log(data)
-        if(realPath == '/user/register') { 
-            req.session.token = data.info.token || '';
+        // console.log(req.headers.cookie)
+        if(realPath == '/user/register') {  
+            res.cookie('token',data.info.token,{
+                path:'/',
+                expires: new Date(Date.now() + 1000*60*60*24*7), 
+                httpOnly: true 
+            })
         }
         if(realPath == '/user/getUserInfo') { 
-            req.session.user = data || {}
+            res.cookie('user',data.info,{
+                path:"/",
+                expires: new Date(Date.now() + 1000*60*60*24*7), 
+                httpOnly: true                 
+            }) 
         }
-        if(realPath == '/user/logout') {
-            delete req.session.user 
-            delete req.session.token 
+        if(realPath == '/user/logout') { 
+            res.clearCookie('token',{
+                path:'/'
+            });
+            res.clearCookie('user',{
+                path:'/'
+            })
         }
         return JSON.stringify(data);
     }
@@ -81,12 +91,11 @@ app.use('/api/user',proxy(Config.getDomain(),{
 
 app.use('/api',proxy(Config.getDomain(),{
     proxyReqPathResolver(req){ 
-        console.log(req.path)
-        console.log(req.headers)
+        // console.log(req.path)
+        // console.log(req.headers)
         return req.path.replace('/api','')
     },
-    proxyReqOptDecorator(proxyReqOpts, srcReq){
-        proxyReqOpts.headers['token'] = srcReq.session.token || '';
+    proxyReqOptDecorator(proxyReqOpts, srcReq){ 
         // console.log(srcReq.headers)
         return proxyReqOpts;
     },     

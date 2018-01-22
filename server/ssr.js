@@ -9,9 +9,10 @@ const ReactSSR = require('react-dom/server')
 // 配置
 const Config = require('../config/index')
 
-const axios = require('axios')
+const cookie = require('../config/cookie')
 // 异步获取数据依赖
 const asyncBootstrap = require('react-async-bootstrapper').default;
+
 
 /**
  * 
@@ -19,10 +20,13 @@ const asyncBootstrap = require('react-async-bootstrapper').default;
  */
 const getStoreState = (stores) => {
     return Object.keys(stores).reduce((result, storeName) => {
-      // console.log('result 和 storeName 是：---------------')
-			// console.log(result)
-			// console.log(storeName)
-			// console.log(stores[storeName].toJson())  
+        // console.log('')
+        // console.log('------------------Get Store State--------------------------')
+        // console.log('当前storename是'+storeName) 
+        // console.log('当前result是')
+        // console.log(result)
+        // console.log('------------------Get Store State--------------------------')
+        // console.log('')
       result[storeName] = stores[storeName].toJson()
       return result
     }, {})
@@ -38,19 +42,27 @@ const getStoreState = (stores) => {
 module.exports = (bundle, template, req, res) =>{ 
     // console.log('在SSR方法中获取session:')
     // console.log(req.session)
-
+ 
     // 创建全局的store
     const CreateGlobalStore = bundle.CreateStoreMap;
     // react渲染的根组件
     const CreateApp = bundle.default;
     // 默认路由的上下文
-    const RouterContext = {}; 
+    const RouterContext = {};  
+
+    const token = cookie.get(req,'token')
+    const user = cookie.get(req,'user')
     // store实例
-    const stores =  CreateGlobalStore()
-    if(req.session.user) {
-        console.log('服务器上有user数据，user数据为：')
-        console.log(req.session.user)
-        stores.UserStore.setUserInfo(req.session.user.info)
+    const stores =  CreateGlobalStore({
+        token,
+        user,
+    }) 
+    // 如果cookie中有user的数据，则设置在userstore中
+    if(req.headers.cookie) {
+        const data = cookie.get(req,'user')
+        // console.log('***************在SSR方法中获取cookie中的user数据*******************')
+        // console.log(data)
+        stores.UserStore.setUserInfo(data)
     }
     // console.log('stores：-----------------')
     // console.log(stores)
@@ -71,7 +83,7 @@ module.exports = (bundle, template, req, res) =>{
                 res.status(302).setHeader('Location', RouterContext.url);
                 res.end();
                 return;
-            }            
+            }             
             // 服务器端渲染后的初始数据，插入到html页面中
             const state = getStoreState(stores)
             // 每个页面中传入的meta,title等信息
