@@ -8,8 +8,8 @@ import { CreateStoreMap } from './store/store'
 
 // 让mobx在服务器端渲染的时候，不会重复的数据变换
 useStaticRendering(true)
-
-// stores:{storeA:{},storeB:{}}
+ 
+ 
 
 const render = (stores, routerContext, currentUrl) => (
     <Provider {...stores} >
