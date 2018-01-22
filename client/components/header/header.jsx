@@ -20,7 +20,7 @@ export default class ComponentHeader extends React.Component {
     }
   } 
   componentDidMount(){
-    console.log(this.props.UserStore.user.name)
+    // console.log(this.props.UserStore.user.name)
   }
   Logout(){ 
     http.post('/api/user/user/logout')
@@ -38,6 +38,7 @@ export default class ComponentHeader extends React.Component {
   } 
   render(){ 
     const user = this.state.user || {};    
+    console.log(this.props)
     return (
       <header className="component-header">
         <a href="/">
