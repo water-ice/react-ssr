@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import "./loading.less";
+import "./index.less";
 export default class PluginLoading extends Component {
     render(){
         return(

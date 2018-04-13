@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 
-import './message.less';
+import './index.less';
 
 const iconType = {
     info:(<i className="iconfont message-info">&#xe8be;</i>),
