@@ -1,17 +1,11 @@
-import UserStore from './user'; 
-import TestStore from './test';
-import ListStore from './list';
+import UserStore from './user';   
 export {
-  UserStore, 
-  TestStore,
-  ListStore,
+  UserStore,   
 }
 
 
 export const CreateStoreMap = (cookie) => {
-  return {
-    UserStore: new UserStore(cookie),  
-    TestStore: new TestStore(cookie),
-    ListStore: new ListStore(cookie), 
+  return { 
+    UserStore: new UserStore(cookie), 
   }
 }
