@@ -4,10 +4,10 @@ import { observer, inject } from 'mobx-react'
 import Helmet from 'react-helmet'  
 import {Link} from 'react-router-dom'
 
-import ComponentIndexHeader from '@components/header/header'
-import ComponentFooter from '@components/footer/footer'
+import ComponentIndexHeader from '@component/header'
+import ComponentFooter from '@component/footer'
 
-import '@style/page_index.less'; 
+import './index.less'; 
 
 export default class PageIndex extends React.Component {
   constructor(){
@@ -17,7 +17,7 @@ export default class PageIndex extends React.Component {
     return (
       <main>
         <Helmet>
-          <title>精于设计-世界设计师赏金游戏平台</title>
+          <title>首页</title>
         </Helmet> 
         <ComponentIndexHeader history={this.props.history}/>
         <div className="page-index">首页</div>

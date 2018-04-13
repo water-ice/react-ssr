@@ -3,21 +3,14 @@ import {
     inject,
     observer,
 } from 'mobx-react'
-import {asyncBootstrap} from 'react-async-bootstrapper'
-@inject('TestStore') @observer
+import {asyncBootstrap} from 'react-async-bootstrapper' 
 export default class TestIndex extends Component {
     constructor(props){
-        super(props) 
-        // console.log(this.props.TestStore.datas.status)
-        this.state = {
-            list:props.TestStore.datas.info
+        super(props)  
+        this.state = { 
         }
     }
-    asyncBootstrap(){
-        return this.props.TestStore.getData()
-        .then(response => {
-            return true;
-        })
+    asyncBootstrap(){ 
     }
     componentDidMount(){
         console.log(this.state.list)
